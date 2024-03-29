@@ -1,4 +1,12 @@
 namespace Online_store
+
+/* This is the main fucntion for our Capstone Project!
+ * Authors:
+ * Cam Carlson, TODO: <add name here>
+ * David Khuu, TODO: work on code 
+ * 
+ */
+
 {
     public class Program
     {
