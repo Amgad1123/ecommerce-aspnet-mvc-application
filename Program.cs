@@ -1,15 +1,19 @@
+using System.Data.SqlClient;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
 namespace Online_store
 
 /* This is the main fucntion for our Capstone Project!
  * Authors:
  * Cam Carlson, TODO: <add name here>
  * David Khuu, TODO: work on code 
- * 
+ * Amgad Ahmed, 
  */
 
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -39,6 +43,7 @@ namespace Online_store
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
+
         }
     }
 }
