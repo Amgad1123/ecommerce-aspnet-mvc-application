@@ -11,7 +11,6 @@ namespace Online_store
  * 
  * Erin Hughey
  * This is a test commit!!!!!!! :)
- * Amgad Ahmed
  */
 
 {
