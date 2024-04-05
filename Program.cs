@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Online_store.Data;
+using System;
 using System.Data.SqlClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -23,6 +26,10 @@ namespace Online_store
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<OnlineStoreContext>(options => options.UseSqlServer(
+            builder.Configuration.GetConnectionString("DefaultConnectionString")
+            ));
 
             var app = builder.Build();
 

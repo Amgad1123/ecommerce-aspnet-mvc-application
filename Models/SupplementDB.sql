@@ -56,6 +56,7 @@ CREATE TABLE Products (
     Description TEXT,
     Price DECIMAL(10, 2) NOT NULL,
     QuantityInStock INT NOT NULL
+
     -- Add more fields as needed
 );
 
