@@ -12,7 +12,7 @@ using Online_store.Data;
 namespace Online_store.Migrations
 {
     [DbContext(typeof(OnlineStoreContext))]
-    [Migration("20240405024236_Initial")]
+    [Migration("20240407224909_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
