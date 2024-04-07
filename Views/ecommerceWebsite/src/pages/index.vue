@@ -8,7 +8,7 @@
             <v-carousel>
               <v-carousel-item v-for="(item, i) in items" :key="i" :src="item.src" cover>
                 <v-row>
-                  <v-col cols="12" sm="4">
+                  <v-col cols="12" sm="6">
                     <div class="d-flex fill-height justify-center align-center">
                       <h2 class="text-white top">{{ item.title }}</h2><br />
                     </div>
@@ -21,7 +21,7 @@
                   </v-col>
                 </v-row>
               </v-carousel-item>
-            </v-carousel>
+            </v-carousel> 
           </v-col>
         </v-row>
       </v-container>
