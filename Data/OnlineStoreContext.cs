@@ -1,12 +1,12 @@
 ﻿#nullable disable
-using System;
-using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Online_store.Models;
 
 namespace Online_store.Data;
 
-public partial class OnlineStoreContext : DbContext
+public partial class OnlineStoreContext : IdentityDbContext<IdentityUser>
 {
     public OnlineStoreContext(DbContextOptions<OnlineStoreContext> options)
         : base(options)
@@ -53,7 +53,7 @@ public partial class OnlineStoreContext : DbContext
         modelBuilder.Entity<CityModel>(entity =>
         {
             entity.HasKey(e => e.CityId).HasName("PK__Cities__F2D21A96D950DD61");
-
+            base.OnModelCreating(modelBuilder);
             entity.Property(e => e.CityId).HasColumnName("CityID");
             entity.Property(e => e.CityName)
                 .IsRequired()
