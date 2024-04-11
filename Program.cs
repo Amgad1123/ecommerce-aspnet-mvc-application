@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Online_store.Data;
 using System;
 using System.Data.SqlClient;
@@ -31,6 +33,7 @@ namespace Online_store
             builder.Configuration.GetConnectionString("DefaultConnectionString")
             ));
 
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<OnlineStoreContext>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -43,7 +46,7 @@ namespace Online_store
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -51,6 +54,10 @@ namespace Online_store
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Login}/{action=Login}/{id?}");
 
             app.Run();
 

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<UserModel>
+
+@{
+    ViewData["Title"] = "User Info";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <th>@Html.DisplayNameFor(model => model.Username)</th>
+                    <th>@Html.DisplayNameFor(model => model.PasswordHash)</th>
+                    <th>Actions (to be implemented)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="align-middle">
+                            @Html.DisplayFor(mode1Item => item.Email)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(mode1Item => item.Username)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(mode1Item => item.PasswordHash)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
