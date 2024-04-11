@@ -26,11 +26,13 @@
         </v-row>
       </v-container>
     </v-main>
+    <AppFooter />
   </v-app>
 </template>
 
 <script setup>
- import NavBar from '@/components/NavBar.vue';
+  import NavBar from '@/components/NavBar.vue';
+  import AppFooter from '@/components/AppFooter.vue';
 </script>
 
 <script>
