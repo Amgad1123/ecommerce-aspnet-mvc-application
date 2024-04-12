@@ -18,7 +18,27 @@ namespace Online_store.Controllers
             return View();
         }
 
+        public IActionResult Product()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult Users()
+        {
+            return View();
+        }
+
+        public IActionResult Verify() 
         {
             return View();
         }
