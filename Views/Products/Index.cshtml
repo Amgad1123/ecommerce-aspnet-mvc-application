@@ -36,6 +36,13 @@
                     </tr>
                 }
             </tbody>
+            <tbody>
+                <form asp-controller="Product" asp-action="Details" method="get">
+                    <input type="text" name="searchString" placeholder="Search Products">
+                    <button type="submit">Search</button>
+                </form>
+
+            </tbody>
 
         </table>
 

@@ -29,14 +29,34 @@ namespace Online_store.Controllers
         }
 
         // Action to retrieve a specific product by id from the database
-        public IActionResult Details(int id)
+        public IActionResult Details(int? id, string searchString)
         {
-            ProductModel product = _context.Products.Find(id);
-            if (product == null)
+            IQueryable<ProductModel> products = _context.Products;
+
+            // Filter products based on search string
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(p => p.Name.Contains(searchString));
+            }
+
+            // Filter by product ID if provided
+            if (id.HasValue)
+            {
+                products = products.Where(p => p.ProductId == id);
+            }
+
+            // Retrieve the list of products
+            List<ProductModel> productList = products.ToList();
+
+            // Check if any products match the search criteria
+            if (productList.Count == 0)
             {
                 return NotFound();
             }
-            return Json(product);
+
+            // Return the list of products as JSON
+            return Json(productList);
         }
+
     }
 }
