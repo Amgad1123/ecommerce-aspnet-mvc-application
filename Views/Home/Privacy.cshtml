@@ -1,8 +1,61 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Welcome to our Privacy Policy page. This page is designed to inform you about our policies regarding the collection, use, 
-    and disclosure of personal data when you use our website and the choices you have associated with that data. 
-    We are committed to ensuring that your privacy is protected. By using this website, you consent to the practices described in this Privacy Policy.</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FDFDFD;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #4A312C; /* Brown/Mocha color */
+        }
+
+        p {
+            margin: 20px;
+            color: #4A312C; /* Brown/Mocha color */
+        }
+
+        .privacy-policy {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>@ViewData["Title"]</h1>
+    <div class="privacy-policy">
+        <p>
+            Thank you for visiting our website. This Privacy Policy page is intended to inform you about how we collect, use, and protect your personal information when you use our website.
+        </p>
+        <p>
+            We are committed to ensuring that your privacy is protected. Any personal information collected through this website will only be used in accordance with this Privacy Policy.
+        </p>
+        <p>
+            Our website may collect certain personal information, such as your name, email address, and contact information, when you sign up for an account, place an order, or subscribe to our newsletter. We use this information to process your orders, communicate with you, and improve our services.
+        </p>
+        <p>
+            We may also collect non-personal information, such as your IP address and browser type, to analyze trends, administer the website, track users' movements, and gather demographic information for aggregate use.
+        </p>
+        <p>
+            Please be assured that we do not sell, trade, or rent your personal information to third parties without your consent. However, we may share your information with trusted service providers who assist us in operating our website, conducting our business, or serving you, as long as those parties agree to keep this information confidential.
+        </p>
+        <p>
+            By using our website, you consent to the collection and use of your personal information as described in this Privacy Policy. If you have any questions or concerns about our Privacy Policy, please contact us.
+        </p>
+    </div>
+</body>
+</html>

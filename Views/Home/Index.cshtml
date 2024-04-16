@@ -2,12 +2,65 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FDFDFD;
+            margin: 0;
+            padding: 0;
+        }
 
-<a href="/Products">
-    <button>Go to Product Page</button>
-</a>
+        .header {
+            text-align: center;
+            padding: 20px;
+        }
 
+        .logo {
+            margin-bottom: 20px;
+            width: 150px; /* Adjust the width of the logo as needed */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow */
+        }
+
+        h1 {
+            font-weight: bold;
+            color: #4A312C; /* Brown/Mocha color */
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-style: italic;
+            color: #4A312C; /* Brown/Mocha color */
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #4A312C; /* Brown/Mocha color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+            .btn:hover {
+                background-color: #7D5A53; /* Darker shade for hover effect */
+            }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="/images/Nutri-ActiveLogo.png" alt="NutriActive Logo" class="logo" />
+        <h1>Welcome to NutriActive Supplements</h1>
+        <h2>Empowering mind and body, since 2024</h2>
+        <a href="/Products" class="btn">Go to Product Page</a>
+    </div>
+</body>
+</html>

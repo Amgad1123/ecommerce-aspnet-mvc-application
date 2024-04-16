@@ -2,18 +2,82 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = "Register";
+}
 
-    <h2>Register</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FDFDFD;
+            margin: 0;
+            padding: 0;
+        }
 
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #4A312C; /* Brown/Mocha color */
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #4A312C; /* Brown/Mocha color */
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #CCCCCC;
+        }
+
+        button[type="submit"] {
+            background-color: #4A312C; /* Brown/Mocha color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            button[type="submit"]:hover {
+                background-color: #7D5A53; /* Darker shade for hover effect */
+            }
+    </style>
+</head>
+<body>
+    <h2>@ViewData["Title"]</h2>
     <form asp-controller="Register" asp-action="RegisterAccount" method="post">
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="Email" class="form-control" />
+            <input type="email" id="email" name="Email" class="form-control" required />
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="Password" class="form-control" />
+            <input type="password" id="password" name="Password" class="form-control" required />
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
     </form>
-}
+</body>
+</html>

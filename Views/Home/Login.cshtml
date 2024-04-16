@@ -11,6 +11,68 @@
 <p>Use this page to Login or SignUp.</p>
 @model Online_store.Models.UserModel
 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #FDFDFD;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #4A312C; /* Brown/Mocha color */
+    }
+
+    p {
+        text-align: center;
+        color: #4A312C; /* Brown/Mocha color */
+    }
+
+    .loginForm {
+        margin: 20px auto;
+        max-width: 500px;
+        padding: 20px;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #CCCCCC;
+    }
+
+    .btn {
+        background-color: #4A312C; /* Brown/Mocha color */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .btn:hover {
+            background-color: #7D5A53; /* Darker shade for hover effect */
+        }
+
+    .register-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
 <div class="row loginForm">
     <div class="col-md-8 col-md-offset-2">
         <h2>Please log in or sign up.</h2>
@@ -41,7 +103,5 @@
     </div>
 </div>
 
-<a href="/Register">
-    <button>New here? Click here to register!</button>
-</a>
+<a href="/Register" class="btn">New here? Click here to register!</a>
 
