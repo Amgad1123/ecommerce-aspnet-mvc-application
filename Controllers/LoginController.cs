@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Online_store.Data;
 using System.Web;
-
-using Microsoft.AspNetCore.Mvc;
 using Online_store.Models;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Identity;
