@@ -26,7 +26,7 @@ public partial class OnlineStoreContext : IdentityDbContext<IdentityUser>
     public virtual DbSet<ProductModel> Products { get; set; }
 
     public virtual DbSet<StateModel> States { get; set; }
-    public virtual DbSet<ShoppingCartModel> ShoppingCarts { get; set; }
+   // public virtual DbSet<ShoppingCartModel> ShoppingCarts { get; set; }
 
     public virtual DbSet<TransactionModel> Transactions { get; set; }
 

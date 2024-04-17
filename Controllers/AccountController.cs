@@ -5,26 +5,27 @@ using System.Web;
 using Online_store.Models;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Online_store.Controllers
 {
-    public class LoginController : Controller
+    public class AccountController : Controller
     {
         private readonly OnlineStoreContext _context;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
-        public LoginController(OnlineStoreContext context, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public AccountController(OnlineStoreContext context, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             _context = context;
             _userManager = userManager; 
             _signInManager = signInManager; 
         }
 
-        public ViewResult Login()
+        /*public ViewResult Login()
         {
             var users = _context.Users.ToList();
             return View(users);
-        }
+        }*/
 
         public IActionResult Login(string returnUrl)
         {
@@ -63,8 +64,8 @@ namespace Online_store.Controllers
         {
             if(ModelState.IsValid) {
                 var user1 = new IdentityUser() { UserName = userModel.Username };
-                var result = await _userManager.CreateAsync(user1, userModel.PasswordHash); 
-                if(result.Succeeded) {
+                var result = await _userManager.CreateAsync(user1, userModel.PasswordHash);
+                if (result.Succeeded) {
                     return RedirectToAction("Index", "Home");
                 } 
             }

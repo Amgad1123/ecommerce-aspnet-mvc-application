@@ -1,4 +1,4 @@
-﻿using Online_store.Data;
+﻿/*using Online_store.Data;
 using Microsoft.AspNetCore.Http;
 using System;
 namespace Online_store.Models
@@ -33,7 +33,8 @@ namespace Online_store.Models
         /*public void AddToCart(,int Amount)
         {
 
-        }*/
+        }
     }
 
 }
+        */
