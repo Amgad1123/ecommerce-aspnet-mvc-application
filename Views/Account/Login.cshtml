@@ -1,21 +1,13 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@{
-    ViewData["Title"] = "Login/SignUp";
-}
-<h1>@ViewData["Title"]</h1>
-
-<p>Use this page to Login or SignUp.</p>
-@model Online_store.Models.UserModel
+﻿﻿
+@model UserModel
 
 <div class="row loginForm">
     <div class="col-md-8 col-md-offset-2">
-        <h2>Please log in or sign up.</h2>
-        <form asp-controller="Home" asp-action="Login" method="post" class="form-horizontal" role="form">
+        <h2>Please log in before placing an order.</h2>
+        <form asp-controller="Account" asp-action="Login" method="post" class="form-horizontal" role="form">
+            <h4>Enter your details below</h4>
             <hr />
+            <input type="hidden" asp-for="ReturnUrl" />
             <div class="form-group">
                 <label asp-for="Username" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
@@ -40,8 +32,3 @@
         </form>
     </div>
 </div>
-
-<a href="/Register">
-    <button>New here? Click here to register!</button>
-</a>
-
