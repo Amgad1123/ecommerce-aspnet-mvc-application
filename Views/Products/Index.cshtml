@@ -87,8 +87,11 @@
                             <td>@Html.DisplayFor(model => item.Description)</td>
                             <td>@Html.DisplayFor(model => item.Price)</td>
                             <td>@Html.DisplayFor(model => item.QuantityInStock)</td>
+
+                            <!-- TODO: Attempt at adding button to take to each products details page, must complete!-->
                             <td>
                                 <a href="/Products/ProductsInfo/@item.ProductId" class="btn" style="background-color: #4A312C; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; text-decoration: none;">Details</a>
+                                <a class="btn" asp-area="" asp-controller="Products" asp-action="ProductsInfo" asp-route-id="@item.ProductId" style="background-color: #4A312C; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; text-decoration: none;">Details</a>
                             </td>
                         </tr>
                     }

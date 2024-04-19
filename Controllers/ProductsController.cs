@@ -14,6 +14,19 @@ namespace Online_store.Controllers
         {
             _context = context;
         }
+            // This is the Action that is SUPPOSED to return the view of one product's info.
+        public IActionResult ProductInfo(int id)
+    {
+            // Fetch product details based on the id
+            var product = _context.Products.FirstOrDefault(p => p.ProductId == id);
+
+            if (product == null)
+        {
+            return NotFound(); // Or some other error handling mechanism
+        }
+
+        return View(product); // Render the Details view with the product data
+    }
 
         public IActionResult Index()
         {
@@ -57,6 +70,8 @@ namespace Online_store.Controllers
             // Return the list of products as JSON
             return Json(productList);
         }
+
+
 
     }
 }
