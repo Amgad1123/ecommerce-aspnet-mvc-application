@@ -1,8 +1,51 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Welcome to our Privacy Policy page. This page is designed to inform you about our policies regarding the collection, use, 
-    and disclosure of personal data when you use our website and the choices you have associated with that data. 
-    We are committed to ensuring that your privacy is protected. By using this website, you consent to the practices described in this Privacy Policy.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #d2b48c; /* Light brown background */
+            color: #2e2d2c; /* Dark mocha text color */
+            font-family: Arial, sans-serif; /* Default font */
+            padding: 20px; /* Add padding to the body */
+        }
+
+        h1 {
+            text-align: center; /* Center align heading */
+            margin-bottom: 30px; /* Add space below heading */
+        }
+
+        p {
+            font-size: 1.1rem; /* Larger paragraph text */
+            line-height: 1.6; /* Increased line height for better readability */
+            margin-bottom: 20px; /* Add space below paragraphs */
+        }
+
+        .privacy-text {
+            font-style: italic; /* Italicize text */
+            color: #6b6a69; /* Dark gray text color */
+        }
+
+        .highlight {
+            color: #8b572a; /* Brown color for highlighting */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>@ViewData["Title"]</h1>
+
+    <p class="privacy-text">
+        Welcome to our Privacy Policy page. At <span class="highlight">NutriActive Supplements</span>, we understand the importance of your privacy and are committed to protecting it.
+        This page outlines our policies regarding the collection, use, and disclosure of personal data when you use our website and the options you have regarding that data.
+        We strive to ensure that your personal information is handled securely and responsibly. By using our website, you agree to the practices described in this Privacy Policy.
+    </p>
+
+</body>
+</html>

@@ -2,12 +2,73 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #d2b48c; /* Light brown background */
+            color: #2e2d2c; /* Dark mocha text color */
+            font-family: Arial, sans-serif; /* Default font */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
 
-<a href="/Products">
-    <button>Go to Product Page</button>
-</a>
+        .jumbotron {
+            background-color: #4d2d1f; /* Dark brown */
+            color: #fff; /* White text */
+            padding: 100px 25px; /* Padding for top and bottom */
+            text-align: center; /* Center align text */
+        }
 
+            .jumbotron h1 {
+                font-size: 3.5rem; /* Larger heading size */
+                margin-bottom: 20px; /* Add spacing below heading */
+            }
+
+            .jumbotron p {
+                font-size: 1.5rem; /* Larger paragraph text */
+                margin-bottom: 20px; /* Add spacing below paragraph */
+            }
+
+        .btn-custom {
+            background-color: #8b572a; /* Darker brown button */
+            color: #fff; /* White text */
+            border: none; /* Remove border */
+            padding: 10px 20px; /* Padding for button */
+            font-size: 1.25rem; /* Larger button text */
+            border-radius: 5px; /* Rounded corners */
+            text-decoration: none; /* Remove underline */
+        }
+
+            .btn-custom:hover {
+                background-color: #634329; /* Darker brown on hover */
+                color: #fff; /* White text on hover */
+            }
+
+        .catchphrase {
+            font-style: italic; /* Italicize text */
+            font-size: 1.2rem; /* Smaller font size */
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto 20px; /* Center logo and add spacing below */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="jumbotron">
+        <img src="~/images/Nutri-ActiveLogo.png" alt="NutriActive Supplements Logo" class="logo" style="width: 2in">
+        <h1>Welcome to NutriActive Supplements</h1>
+        <p>Enhancing the Mind and Body since 2024</p>
+        <p class="catchphrase">"Enhancing the Mind and Body since 2024"</p>
+        <a href="/Products" class="btn-custom">Go to Product Page</a>
+    </div>
+
+</body>
+</html>
