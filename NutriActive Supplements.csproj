@@ -4,8 +4,13 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>Online_store</RootNamespace>
+    <RootNamespace>NutriActive Supplements</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Home\Script.js" />
+    <None Remove="Views\Home\StyleSheet.css" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="efpt.config.json.user" />

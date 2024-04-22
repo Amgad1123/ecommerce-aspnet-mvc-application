@@ -5,59 +5,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]</title>
+
     <style>
+        *, *::before, *::after
+
+        {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #d2b48c; /* Light brown background */
-            color: #2e2d2c; /* Dark mocha text color */
-            font-family: Arial, sans-serif; /* Default font */
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
+            margin: 0;
+            background-color: #d2b48c;
+            color: #2e2d2c;
+            font-family: Arial, sans-serif;
         }
 
         .jumbotron {
-            background-color: #4d2d1f; /* Dark brown */
-            color: #fff; /* White text */
-            padding: 100px 25px; /* Padding for top and bottom */
-            text-align: center; /* Center align text */
+            background-color: #4d2d1f;
+            color: #fff;
+            padding: 100px 25px;
+            text-align: center;
         }
 
             .jumbotron h1 {
-                font-size: 3.5rem; /* Larger heading size */
-                margin-bottom: 20px; /* Add spacing below heading */
+                font-size: 3.5rem;
+                margin-bottom: 20px;
             }
 
             .jumbotron p {
-                font-size: 1.5rem; /* Larger paragraph text */
-                margin-bottom: 20px; /* Add spacing below paragraph */
+                font-size: 1.5rem;
+                margin-bottom: 20px;
             }
 
         .btn-custom {
-            background-color: #8b572a; /* Darker brown button */
-            color: #fff; /* White text */
-            border: none; /* Remove border */
-            padding: 10px 20px; /* Padding for button */
-            font-size: 1.25rem; /* Larger button text */
-            border-radius: 5px; /* Rounded corners */
-            text-decoration: none; /* Remove underline */
+            background-color: #8b572a;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.25rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
         }
 
             .btn-custom:hover {
-                background-color: #634329; /* Darker brown on hover */
-                color: #fff; /* White text on hover */
+                background-color: #634329;
             }
 
         .catchphrase {
-            font-style: italic; /* Italicize text */
-            font-size: 1.2rem; /* Smaller font size */
+            font-style: italic;
+            font-size: 1.2rem;
         }
 
         .logo {
             display: block;
-            margin: 0 auto 20px; /* Center logo and add spacing below */
+            margin: 0 auto 20px;
         }
+
+        .carousel > ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel {
+            width: 67.57vw;
+            height: 70vh; 
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+            .slide > img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            .slide[data-active] {
+                opacity: 1;
+            }
+
+        .carousel-button {
+            position: absolute;
+            z-index: 2;
+            background: none;
+            border: none;
+            font-size: 4rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, .5);
+            cursor: pointer;
+            border-radius: .25rem;
+            padding: 0.5rem;
+            background-color: rgba(0, 0, 0, .1);
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+            .carousel-button:hover,
+            .carousel-button.focus {
+                color: white;
+                background-color: rgba(0, 0, 0, .2);
+            }
+
+            .carousel-button:focus {
+                outline: 1px solid black;
+            }
+
+            .carousel-button.prev {
+                left: 1rem;
+            }
+
+            .carousel-button.next {
+                right: 1rem;
+            }
+
     </style>
 </head>
 <body>
@@ -65,10 +140,70 @@
     <div class="jumbotron">
         <img src="~/images/Nutri-ActiveLogo.png" alt="NutriActive Supplements Logo" class="logo" style="width: 2in">
         <h1>Welcome to NutriActive Supplements</h1>
-        <p>Enhancing the Mind and Body since 2024</p>
         <p class="catchphrase">"Enhancing the Mind and Body since 2024"</p>
-        <a href="/Products" class="btn-custom">Go to Product Page</a>
+        <a href="/Products" class="btn-custom">Go to All Products</a>
     </div>
+
+    <hr />
+
+    <section aria-label="Featured Products">
+        <h1 align="center" style="color: white;">Featured Products</h1>
+        <p align="center" style="color: white;">Our Top Picks!</p>
+
+        <hr />
+
+        <div class="carousel">
+            <button class="carousel-button prev" onclick="prevSlide()">&#8678;</button>
+            <button class="carousel-button next" onclick="nextSlide()">&#8680;</button>
+            <ul>
+                <li class="slide" data-active>
+                    <img src="~/images/Vitamins-in-hand.jpg" alt="Multi Vitamins" />
+                    <div class="carousel-caption">
+                        <h3>Multi Vitamins</h3>
+                        <p>Try our new Multi Vitamins!</p>
+                        <!-- TODO: ADD BUTTONS TO LINK TO PRODUCTS <a href="/Products" class="btn-custom">Go to All Products</a> -->
+                    </div>
+                </li>
+                <li class="slide">
+                    <img src="~/images/banana.jpg" alt="Bananas" />
+                    <div class="carousel-caption">
+                        <h3>Bananas</h3>
+                        <p>Bananas picked fresh for you!</p>
+                        <!-- TODO: ADD BUTTONS TO LINK TO PRODUCTS <a href="/Products" class="btn-custom">Go to All Products</a> -->
+                    </div>
+                </li>
+                <li class="slide">
+                    <img src="~/images/protein.jpg" alt="Whey Protein" />
+                    <div class="carousel-caption">
+                        <h3>Whey Protein</h3>
+                        <p>Get big and strong today!</p>
+                        <!-- TODO: ADD BUTTONS TO LINK TO PRODUCTS <a href="/Products" class="btn-custom">Go to All Products</a> -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(n) {
+            slides[currentSlide].removeAttribute('data-active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].setAttribute('data-active', '');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        showSlide(currentSlide);
+    </script>
 
 </body>
 </html>
