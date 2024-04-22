@@ -33,6 +33,52 @@
         .navbar-logo {
             max-height: 40px; /* Adjust the height as needed */
         }
+
+        .navbar {
+            background-color: #8b572a; /* Brown navbar background */
+        }
+
+        .navbar-brand {
+            color: #fff !important; /* White color for navbar brand */
+            font-weight: bold; /* Bold font weight */
+        }
+
+        .navbar-toggler {
+            border-color: #fff; /* White color for toggler border */
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: #fff !important; /* White color for navbar links */
+        }
+
+            .navbar-nav .nav-item .nav-link:hover {
+                color: #f8f9fa !important; /* Light gray color on hover */
+            }
+
+        /* Style for the logo */
+        .navbar-logo {
+            max-height: 40px; /* Adjust the height as needed */
+        }
+
+        /* Footer Style */
+        .footer {
+            background-color: #8b572a; /* Brown footer background */
+            color: #fff; /* White text color */
+            text-align: center; /* Center align text */
+            padding: 10px 0; /* Padding for top and bottom */
+            position: absolute; /* Position the footer */
+            width: 100%; /* Full width */
+            bottom: 0; /* Stick it to the bottom */
+        }
+
+            .footer a {
+                color: #f8f9fa; /* Light gray color for links */
+                margin: 0 10px; /* Add spacing around links */
+            }
+
+                .footer a:hover {
+                    color: #fff; /* White color on hover */
+                }
     </style>
 </head>
 <body>
@@ -67,8 +113,12 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - NutriActive - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> - <a asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+        <div class="container" style="color: white;">
+            &copy; 2024 - NutriActive -
+            <a href="https://github.com/Amgad1123/ecommerce-aspnet-mvc-application" target="_blank" rel="noopener noreferrer">GitHub</a> -
+            <a href="https://twitter.com/nutriactivecorp" target="_blank" rel="noopener noreferrer">Twitter</a> -
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> -
+            <a asp-area="" asp-controller="Home" asp-action="Login">Login</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
