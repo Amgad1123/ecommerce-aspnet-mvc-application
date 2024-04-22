@@ -43,12 +43,7 @@ namespace Online_store
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            using (var serviceScope = app.Services.CreateScope())
-            {
-                var context = serviceScope.ServiceProvider.GetRequiredService<OnlineStoreContext>();
-                context.Database.EnsureDeleted();
-                context.Database.Migrate();
-            }
+      
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();
