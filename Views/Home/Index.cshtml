@@ -1,8 +1,4 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -10,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
-        *, *::before, *::after
-
-        {
+        *, *::before, *::after {
             box-sizing: border-box;
         }
 
@@ -26,8 +20,10 @@
         .jumbotron {
             background-color: #4d2d1f;
             color: #fff;
-            padding: 100px 25px;
+            padding: 35px 25px;
             text-align: center;
+            margin: 0 auto;
+            max-width: 80%;
         }
 
             .jumbotron h1 {
@@ -60,10 +56,65 @@
             font-size: 1.2rem;
         }
 
+        .cart-button {
+            position: absolute;
+            top: 8px;
+            right: 20px;
+            padding: 7px 30px;
+            font-size: 1rem;
+            border-radius: 8px;
+            background-color: #a77f4e;
+        }
+
+            .cart-button:hover {
+                background-color: #d19b13;
+            }
+
+        .search-container {
+            text-align: center;
+            margin: 0 auto; /* Center the container horizontally */
+        }
+
+        .search-bar {
+            padding: 10px;
+            width: 80%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #ffff;
+            color: black;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
         .logo {
             display: block;
             margin: 0 auto 20px;
         }
+
+        hr {
+            width: 80%;
+            margin: 10px auto;
+        }
+
+        .sale-container {
+            background-color: #fff;
+            padding: 10%;
+            max-width: 30%; 
+            height: calc(100vh - 175px); 
+            position: absolute; 
+            border: 10px solid #D2B48C;
+            box-sizing: border-box;
+        }
+
+        .left {
+            left: 0; 
+        }
+
+        .right {
+            right: 0; 
+        }
+
+
 
         .carousel > ul {
             margin: 0;
@@ -74,9 +125,9 @@
         }
 
         .carousel {
-            margin: auto; 
-            width: 67.57vw;
-            height: 70vh; 
+            margin: auto;
+            width: 40.57vw;
+            height: 60vh;
             position: relative;
             overflow: hidden;
         }
@@ -130,6 +181,7 @@
                 left: 1rem;
             }
 
+
             .carousel-button.next {
                 right: 1rem;
             }
@@ -138,12 +190,22 @@
 </head>
 <body>
 
+
+    <div class="search-container">
+        <input type="text" placeholder="Search products..." class="search-bar">
+    </div>
+
+    <div class="sale-container left"></div>
+    <div class="sale-container right"></div>
     <div class="jumbotron">
         <img src="~/images/Nutri-ActiveLogo.png" alt="NutriActive Supplements Logo" class="logo" style="width: 2in">
         <h1>Welcome to NutriActive Supplements</h1>
         <p class="catchphrase">"Enhancing the Mind and Body since 2024"</p>
         <a href="/Products" class="btn-custom">Go to All Products</a>
     </div>
+
+   
+    
 
     <hr />
 
@@ -207,6 +269,8 @@
 
         showSlide(currentSlide);
     </script>
+
+      <a href="/Cart" class="btn-custom cart-button">Cart</a>
 
 </body>
 </html>
