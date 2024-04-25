@@ -21,11 +21,7 @@ namespace Online_store.Controllers
             _signInManager = signInManager; 
         }
 
-        /*public ViewResult Login()
-        {
-            var users = _context.Users.ToList();
-            return View(users);
-        }*/
+
 
         public IActionResult Login(string returnUrl)
         {
@@ -68,7 +64,15 @@ namespace Online_store.Controllers
                 if (result.Succeeded) {
                     return RedirectToAction("Index", "Home");
                 } 
-            }
+                else
+                // displays error message to the user based on their incorrect input
+                {
+                    foreach (var err in result.Errors)
+                    {
+                        ModelState.AddModelError("", $"{err.Description}");
+                    }
+                    }
+                }
             return View(userModel);
         }
         [HttpPost]

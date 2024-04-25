@@ -67,6 +67,7 @@
             <form asp-controller="Account" asp-action="Login" method="post" class="form-horizontal" role="form">
                 <h4>Enter Your Credentials</h4>
                 <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="ReturnUrl" />
                 <div class="form-group">
                     <label asp-for="Username" class="col-md-2 control-label"></label>
