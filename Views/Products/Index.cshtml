@@ -90,6 +90,17 @@
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.Description)</td>
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.Price)</td>
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.QuantityInStock)</td>
+
+                            @{
+                                string itemNameWithoutSpaces = item.Name.Replace(" ", ""); // Replace spaces with no space
+                                                                                           // string itemNameWithoutSpaces = item.Name.Replace(" ", "_"); // Replace spaces with underscore
+                            }
+                            <td class="align-middle">
+                                <form action="/Products/@itemNameWithoutSpaces" method="GET">
+                                    <button type="submit" class="btn btn-primary">View Details</button>
+                                </form>
+                            </td>
+
                         </tr>
                     }
                 </tbody>
