@@ -1,0 +1,101 @@
+﻿@page
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #d2b48c;
+            color: #2e2d2c;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #8b572a;
+        }
+
+        th {
+            background-color: #4d2d1f;
+            color: #fff;
+            text-align: left;
+        }
+
+        .total {
+            text-align: right;
+        }
+
+        .btn-custom {
+            background-color: #8b572a;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.25rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-custom:hover {
+                background-color: #634329;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Shopping Cart</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Here you can dynamically populate the table with items from the cart -->
+                <!-- For testing purposes, you can hardcode some sample items -->
+                <tr>
+                    <td>Sample Product</td>
+                    <td>$10.00</td>
+                    <td>2</td>
+                    <td>$20.00</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="total">Total:</td>
+                    <td>$20.00</td>
+                </tr>
+            </tfoot>
+        </table>
+        <a href="/" class="btn-custom">Continue Shopping</a>
+    </div>
+</body>
+</html>

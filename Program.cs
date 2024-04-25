@@ -6,6 +6,7 @@ using System;
 using System.Data.SqlClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
+
 namespace Online_store
 
 /* This is the main fucntion for our Capstone Project!
@@ -27,7 +28,8 @@ namespace Online_store
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
 
             builder.Services.AddDbContext<OnlineStoreContext>(options => options.UseSqlServer(
             builder.Configuration.GetConnectionString("DefaultConnectionString")
@@ -43,7 +45,7 @@ namespace Online_store
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-      
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();
@@ -52,11 +54,11 @@ namespace Online_store
             app.UseAuthorization();
 
             app.MapControllerRoute(
-                name: "default",
+                name: "home",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.MapControllerRoute(
-                name: "default",
+                name: "login",
                 pattern: "{controller=Login}/{action=Login}/{id?}");
 
             app.Run();
