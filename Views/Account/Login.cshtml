@@ -1,69 +1,74 @@
 ﻿@model UserModel
 
+@{
+    ViewData["Title"] = "Login";
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
         body {
-            background-color: #d2b48c; /* Light brown background */
-            color: #2e2d2c; /* Dark mocha text color */
-            font-family: Arial, sans-serif; /* Default font */
+            background-color: #d2b48c; 
+            color: #2e2d2c; 
+            font-family: Arial, sans-serif;
         }
 
         .loginForm {
-            margin-top: 50px; /* Add space at the top */
+            margin-top: 50px;
         }
 
         h2 {
-            text-align: center; /* Center align heading */
-            margin-bottom: 30px; /* Add space below heading */
+            text-align: center; 
+            margin-bottom: 30px; 
         }
 
         form {
-            background-color: #fff; /* White background for form */
-            padding: 20px; /* Add padding inside form */
-            border-radius: 5px; /* Rounded corners */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+            background-color: #fff;
+            padding: 20px; 
+            border-radius: 5px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
         }
 
         h4 {
-            margin-bottom: 20px; /* Add space below subheading */
+            margin-bottom: 20px; 
         }
 
         .form-control {
-            border-color: #8b572a; /* Brown border color */
+            border-color: #8b572a; 
         }
 
         .btn-success {
-            background-color: #8b572a; /* Brown button color */
-            border-color: #8b572a; /* Brown border color */
+            background-color: #8b572a;
+            border-color: #8b572a;
         }
 
             .btn-success:hover {
-                background-color: #634329; /* Darker brown on hover */
-                border-color: #634329; /* Darker brown border on hover */
+                background-color: #634329;
+                border-color: #634329;
             }
 
         .text-danger {
-            color: #dc3545; /* Red text color for validation error */
+            color: #dc3545;
         }
 
         .personal-text {
-            font-style: italic; /* Italicize text */
-            color: #6b6a69; /* Dark gray text color */
+            font-style: italic;
+            color: #6b6a69;
         }
+
     </style>
 </head>
 <body>
 
     <div class="row loginForm">
         <div class="col-md-8 offset-md-2">
-            <h2>Welcome Back!</h2>
-            <p class="personal-text">We're glad to see you again. Please log in to continue.</p>
+            <h2 style="color: white;">Welcome Back!</h2>
+            <p class="personal-text" style="color: white;">We're glad to see you again. Please log in to continue.</p>
             <form asp-controller="Account" asp-action="Login" method="post" class="form-horizontal" role="form">
                 <h4>Enter Your Credentials</h4>
                 <hr />
@@ -91,6 +96,9 @@
                     </div>
                 </div>
             </form>
+            <a href="Register" style="color: white;">
+                New here? Click here to register!
+            </a>
         </div>
     </div>
 

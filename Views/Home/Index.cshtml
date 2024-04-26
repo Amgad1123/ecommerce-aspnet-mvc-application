@@ -1,9 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
 
     <style>
         *, *::before, *::after {
@@ -70,22 +75,6 @@
                 background-color: #d19b13;
             }
 
-        .search-container {
-            text-align: center;
-            margin: 0 auto; /* Center the container horizontally */
-        }
-
-        .search-bar {
-            padding: 10px;
-            width: 80%;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            background-color: #ffff;
-            color: black;
-            font-size: 1rem;
-            margin-bottom: 20px;
-        }
-
         .logo {
             display: block;
             margin: 0 auto 20px;
@@ -95,26 +84,6 @@
             width: 80%;
             margin: 10px auto;
         }
-
-        .sale-container {
-            background-color: #fff;
-            padding: 10%;
-            max-width: 30%; 
-            height: calc(100vh - 175px); 
-            position: absolute; 
-            border: 10px solid #D2B48C;
-            box-sizing: border-box;
-        }
-
-        .left {
-            left: 0; 
-        }
-
-        .right {
-            right: 0; 
-        }
-
-
 
         .carousel > ul {
             margin: 0;
@@ -126,7 +95,7 @@
 
         .carousel {
             margin: auto;
-            width: 40.57vw;
+            width: 55.57vw;
             height: 60vh;
             position: relative;
             overflow: hidden;
@@ -190,22 +159,12 @@
 </head>
 <body>
 
-
-    <div class="search-container">
-        <input type="text" placeholder="Search products..." class="search-bar">
-    </div>
-
-    <div class="sale-container left"></div>
-    <div class="sale-container right"></div>
     <div class="jumbotron">
         <img src="~/images/Nutri-ActiveLogo.png" alt="NutriActive Supplements Logo" class="logo" style="width: 2in">
         <h1>Welcome to NutriActive Supplements</h1>
         <p class="catchphrase">"Enhancing the Mind and Body since 2024"</p>
         <a href="/Products" class="btn-custom">Go to All Products</a>
     </div>
-
-   
-    
 
     <hr />
 
@@ -269,8 +228,6 @@
 
         showSlide(currentSlide);
     </script>
-
-      <a href="/Cart" class="btn-custom cart-button">Cart</a>
 
 </body>
 </html>
