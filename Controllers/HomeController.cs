@@ -43,6 +43,11 @@ namespace Online_store.Controllers
             return View();
         }
 
+        public IActionResult Sale()
+        {
+            return View("Sale");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -32,6 +32,8 @@ public partial class OnlineStoreContext : IdentityDbContext<IdentityUser>
 
     public virtual new DbSet<UserModel> Users { get; set; }
 
+    public virtual DbSet<SaleModel> Sales { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Address>(entity =>
@@ -195,6 +197,23 @@ public partial class OnlineStoreContext : IdentityDbContext<IdentityUser>
                 .HasForeignKey(d => d.ShippingAddressId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Users__ShippingA__1AD3FDA4");
+        });
+
+        modelBuilder.Entity<SaleModel>(entity =>
+        {
+            entity.HasKey(e => e.SalesID).HasName("PK__Sale__");
+
+            entity.Property(e => e.SalesID).HasColumnName("SalesID");
+            entity.Property(e => e.StartDate).HasColumnType("datetime");
+            entity.Property(e => e.EndDate).HasColumnType("datetime");
+            entity.Property(e => e.ProductID).HasColumnName("ProductID");
+
+           entity.HasOne(d => d.Product).WithMany(p => p.Sales)
+                .HasForeignKey(p => p.ProductID)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Sale__Name");
+
+
         });
 
         OnModelCreatingPartial(modelBuilder);
