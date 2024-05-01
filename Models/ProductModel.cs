@@ -1,4 +1,5 @@
 ﻿#nullable disable
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,6 +8,10 @@ namespace Online_store.Models;
 
 public partial class ProductModel
 {
+    public ProductModel()
+    {
+        //Sales = new HashSet<SaleModel>();
+    }
     [Key]
     public int ProductId { get; set; }
 
@@ -19,4 +24,14 @@ public partial class ProductModel
     public int QuantityInStock { get; set; }
 
     public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+
+    public ICollection<SaleModel> Sales { get; set; } = new List<SaleModel>();
+
+    public class ProductsDBContext : DbContext
+    {
+        public DbSet<ProductModel> Products { get; set; }
+    }
+
+
+
 }

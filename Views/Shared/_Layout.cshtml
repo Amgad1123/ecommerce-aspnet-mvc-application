@@ -88,12 +88,15 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Sale" asp-action="Index">Sale</a>
+                        </li>
                         @await Html.PartialAsync("LoginPartial")
                     </ul>
                 </div>
             </div>
             <a href="/Cart" class="btn-custom cart-button" style="color: white;">Cart</a>
-
+            
         </nav>
     </header>
 
