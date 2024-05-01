@@ -124,16 +124,12 @@
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.Description)</td>
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.Price)</td>
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.QuantityInStock)</td>
-
-                            @{
-                                string itemNameWithoutSpaces = item.Name.Replace(" ", ""); // Replace spaces with no space
-                                                                                           // string itemNameWithoutSpaces = item.Name.Replace(" ", "_"); // Replace spaces with underscore
-                            }
                             <td class="align-middle">
-                                <form action="/Products/@itemNameWithoutSpaces" method="GET">
-                                    <button type="submit" class="btn btn-primary">View Details</button>
-                                </form>
+                                <a asp-action="Details" asp-route-id="@item.ProductId">
+                                    <button type="button" class="btn btn-primary" style="background-color: #967969; color: #fff;">View Details</button>
+                                </a>
                             </td>
+
 
                         </tr>
                     }
