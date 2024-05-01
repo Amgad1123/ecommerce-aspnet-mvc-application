@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS Addresses;
 DROP TABLE IF EXISTS Cities;
 DROP TABLE IF EXISTS States;
 DROP TABLE IF EXISTS Countries;
+DROP TABLE IF EXISTS Sales;
 
 CREATE TABLE Countries (
     CountryID INT PRIMARY KEY IDENTITY(1,1),
@@ -87,6 +88,18 @@ CREATE TABLE Transactions (
     PaymentMethod VARCHAR(50) NOT NULL,
     Amount DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
+    -- Add more fields as needed
+);
+
+CREATE TABLE Sales (
+    SalesID INT PRIMARY KEY IDENTITY(1,1),
+    StartDate DATETIME NOT NULL, 
+    EndDate DATETIME NOT NULL,
+    ProductID INT NOT NULL,
+    Price DECIMAL(10, 2),
+    Name VARCHAR(100),
+    SalesPercentage DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
     -- Add more fields as needed
 );
 
@@ -177,7 +190,13 @@ INSERT INTO Transactions (OrderID, TransactionDate, PaymentMethod, Amount) VALUE
 (2, '2024-03-30 14:35:00', 'PayPal', 69.98),
 (3, '2024-03-29 11:50:00', 'Credit Card', 42.98);
 
-
+-- Insert data into Sales table
+INSERT INTO Sales (StartDate, EndDate, ProductID,  Price, Name, SalesPercentage) VALUES 
+('2024-05-04 00:00:00', '2024-05-08 23:59:59', 1 , 0.00, 'Blank', .5),
+('2024-05-04 00:00:00', '2024-05-08 23:59:59', 2 , 0.00, 'Blank',  .5),
+('2024-05-04 00:00:00', '2024-05-08 23:59:59', 3 ,  0.00, 'Blank', .5),
+('2024-03-03 10:00:00', '2024-03-10 23:59:59', 1 , 0.00, 'Blank', .5),
+('2024-04-04 06:00:00', '2024-04-14 23:59:59', 2 ,  0.00, 'Blank', .5);
 
 
 
@@ -212,4 +231,11 @@ SELECT DISTINCT u.Username
 FROM Users u
 JOIN Orders o ON u.UserID = o.UserID;
 
-SELECT * FROM PRODUCTS;
+
+-- List all Sales with their Products
+SELECT Sales.SalesID, Sales.StartDate, Sales.EndDate, Sales.SalesPercentage, Products.Price, Products.Name 
+FROM Sales 
+JOIN Products  ON Sales.ProductID = Products.ProductID;
+
+
+

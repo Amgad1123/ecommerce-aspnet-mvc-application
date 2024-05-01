@@ -1,0 +1,101 @@
+﻿@model IEnumerable<SaleModel>
+
+@{
+    ViewData["Title"] = "Sale";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #d2b48c; /* Light brown background */
+            color: #2e2d2c; /* Dark mocha text color */
+            font-family: Arial, sans-serif; /* Default font */
+            padding: 20px; /* Add padding to the body */
+        }
+
+        h1 {
+            text-align: center; /* Center align heading */
+            margin-bottom: 30px; /* Add space below heading */
+        }
+
+        table {
+            width: 100%; /* Full width table */
+            border-collapse: collapse; /* Collapse border spacing */
+            margin-bottom: 20px; /* Add space below table */
+        }
+
+        th, td {
+            border: 1px solid #8b572a; /* Brown border color */
+            padding: 8px; /* Add padding to cells */
+            text-align: left; /* Left align text in cells */
+        }
+
+        th {
+            background-color: #8b572a; /* Brown background color for header cells */
+            color: #fff; /* White text color for header cells */
+        }
+
+        input[type="text"] {
+            padding: 8px; /* Add padding to input field */
+            border: 1px solid #8b572a; /* Brown border color */
+            border-radius: 5px; /* Rounded corners */
+            margin-right: 10px; /* Add space to the right of input field */
+        }
+
+        button[type="submit"] {
+            background-color: #8b572a; /* Brown button color */
+            color: #fff; /* White text color */
+            border: none; /* Remove border */
+            padding: 8px 16px; /* Add padding to button */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Add pointer cursor on hover */
+        }
+
+            button[type="submit"]:hover {
+                background-color: #634329; /* Darker brown on hover */
+            }
+
+        .align-middle {
+            vertical-align: middle; /* Align content vertically in the middle */
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="color: white;">@ViewData["Title"]</h1>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>SalePercentage</th>
+                        <th>Actions (to be implemented)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="align-middle">@Html.DisplayFor(modelItem => item.StartDate)</td>
+                            <td class="align-middle">@Html.DisplayFor(modelItem => item.EndDate)</td>
+                            <td class="align-middle">@Html.DisplayFor(modelItem => item.SalesPercentage)</td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+</body>
+</html>
