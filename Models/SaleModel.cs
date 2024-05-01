@@ -29,8 +29,5 @@ public partial class SaleModel
 
     public virtual ProductModel Product { get; set; }
 
-    public class SalesDBContext : DbContext
-    {
-        public DbSet<SaleModel> Sales { get; set; }
-    }
+   
 }
