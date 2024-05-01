@@ -146,12 +146,29 @@ INSERT INTO Users (Username, Email, PasswordHash, ShippingAddressID, BillingAddr
 ('user3', 'user3@example.com', 'password3', 4, 5);
 
 -- Insert data into Products table
-INSERT INTO Products (Name, Description, Price, QuantityInStock) VALUES 
+INSERT INTO Products (Name, Description, Price, QuantityInStock) VALUES
 ('Whey Protein', 'High-quality protein powder for muscle building', 29.99, 100),
 ('Multivitamin', 'Daily multivitamin for overall health', 19.99, 50),
 ('Creatine Monohydrate', 'Creatine supplement for strength and endurance', 24.99, 75),
 ('BCAA', 'Branched-chain amino acids for muscle recovery', 22.99, 80),
-('Banana', 'A single ripe banana', 0.49, 500);
+('Banana', 'A single ripe banana', 0.49, 500),
+-- ADDITIONAL DUMMY DATA 
+('Whey Protein - Chocolate', 'High-quality chocolate-flavored protein powder for muscle building', 29.99, 100),
+('Whey Protein - Vanilla', 'High-quality vanilla-flavored protein powder for muscle building', 29.99, 100),
+('Whey Protein - Strawberry', 'High-quality strawberry-flavored protein powder for muscle building', 29.99, 100),
+('Casein Protein - Chocolate', 'Slow-digesting chocolate-flavored protein powder for nighttime muscle recovery', 34.99, 75),
+('Casein Protein - Vanilla', 'Slow-digesting vanilla-flavored protein powder for nighttime muscle recovery', 34.99, 75),
+('Casein Protein - Cookies and Cream', 'Slow-digesting cookies and cream-flavored protein powder for nighttime muscle recovery', 34.99, 75),
+('XtremeGains Whey Protein', 'Premium whey protein powder for maximum gains', 39.99, 120),
+('MuscleMax Nitro Whey Isolate', 'Advanced whey protein isolate formula for rapid muscle growth', 44.99, 90),
+('EpicMuscle ISO100 Whey Protein', 'Fast-absorbing whey protein isolate for intense workouts', 49.99, 80),
+('SuperVit Men Multivitamin', 'Specially formulated multivitamin for men to support overall health', 19.99, 50),
+('SuperVit Women Multivitamin', 'Specially formulated multivitamin for women to support overall health', 19.99, 50),
+('OrganicLife Organic Multivitamin', 'Certified organic multivitamin with whole food ingredients', 29.99, 40),
+('PureGain Creatine Monohydrate', 'Pure creatine monohydrate powder for strength and endurance', 24.99, 75),
+('MuscleFuel BCAA', 'Branched-chain amino acids for muscle recovery and growth', 22.99, 80),
+('MaxPower Xtend BCAA', 'Intra-workout BCAA supplement for enhanced performance and recovery', 27.99, 70);
+
 
 
 -- Insert data into Orders table
