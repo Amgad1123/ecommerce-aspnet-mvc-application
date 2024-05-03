@@ -96,10 +96,11 @@
             <tbody>
                 <tr>
                     <td colspan="5">
-                        <form asp-controller="Product" asp-action="Details" method="get">
-                            <input type="text" name="searchString" placeholder="Search Products">
+                        <form asp-controller="Products" asp-action="Search" method="get">
+                            <input type="text" name="input" placeholder="Search Products">
                             <button type="submit">Search</button>
                         </form>
+
                     </td>
                 </tr>
             </tbody>
