@@ -152,7 +152,6 @@ INSERT INTO Products (Name, Description, Price, QuantityInStock) VALUES
 ('Creatine Monohydrate', 'Creatine supplement for strength and endurance', 24.99, 75),
 ('BCAA', 'Branched-chain amino acids for muscle recovery', 22.99, 80),
 ('Banana', 'A single ripe banana', 0.49, 500),
--- ADDITIONAL DUMMY DATA 
 ('Whey Protein - Chocolate', 'High-quality chocolate-flavored protein powder for muscle building', 29.99, 100),
 ('Whey Protein - Vanilla', 'High-quality vanilla-flavored protein powder for muscle building', 29.99, 100),
 ('Whey Protein - Strawberry', 'High-quality strawberry-flavored protein powder for muscle building', 29.99, 100),
