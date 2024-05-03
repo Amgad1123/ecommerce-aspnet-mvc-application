@@ -147,10 +147,10 @@ INSERT INTO Users (Username, Email, PasswordHash, ShippingAddressID, BillingAddr
 
 -- Insert data into Products table
 INSERT INTO Products (Name, Description, Price, QuantityInStock) VALUES
-('Whey Protein', 'High-quality protein powder for muscle building', 29.99, 100),
-('Multivitamin', 'Daily multivitamin for overall health', 19.99, 50),
-('Creatine Monohydrate', 'Creatine supplement for strength and endurance', 24.99, 75),
-('BCAA', 'Branched-chain amino acids for muscle recovery', 22.99, 80),
+('Whey Protein', 'High-quality protein powder for muscle building', 29.99, 5000),
+('Multivitamin', 'Daily multivitamin for overall health', 19.99, 250),
+('Creatine Monohydrate', 'Creatine supplement for strength and endurance', 24.99, 234),
+('BCAA', 'Branched-chain amino acids for muscle recovery', 22.99, 690),
 ('Banana', 'A single ripe banana', 0.49, 500),
 ('Whey Protein - Chocolate', 'High-quality chocolate-flavored protein powder for muscle building', 29.99, 100),
 ('Whey Protein - Vanilla', 'High-quality vanilla-flavored protein powder for muscle building', 29.99, 100),

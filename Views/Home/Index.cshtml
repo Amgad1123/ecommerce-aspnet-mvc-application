@@ -178,30 +178,19 @@
             <button class="carousel-button prev" onclick="prevSlide()">&#8678;</button>
             <button class="carousel-button next" onclick="nextSlide()">&#8680;</button>
             <ul>
-                <li class="slide" data-active>
-                    <img src="~/images/Vitamins-in-hand.jpg" alt="Multi Vitamins" />
-                    <div class="carousel-caption">
-                        <h3>Multi Vitamins</h3>
-                        <p>Try our new Multi Vitamins!</p>
-                        <!-- TODO: ADD BUTTONS TO LINK TO PRODUCTS <a href="/Products" class="btn-custom">Go to All Products</a> -->
-                    </div>
-                </li>
-                <li class="slide">
-                    <img src="~/images/banana.jpg" alt="Bananas" />
-                    <div class="carousel-caption">
-                        <h3>Bananas</h3>
-                        <p>Bananas picked fresh for you!</p>
-                        <!-- TODO: ADD BUTTONS TO LINK TO PRODUCTS <a href="/Products" class="btn-custom">Go to All Products</a> -->
-                    </div>
-                </li>
-                <li class="slide">
-                    <img src="~/images/protein.jpg" alt="Whey Protein" />
-                    <div class="carousel-caption">
-                        <h3>Whey Protein</h3>
-                        <p>Get big and strong today!</p>
-                        <!-- TODO: ADD BUTTONS TO LINK TO PRODUCTS <a href="/Products" class="btn-custom">Go to All Products</a> -->
-                    </div>
-                </li>
+                @foreach (var product in Model)
+                {
+                    <li class="slide" data-active>
+                        <img src="~/images/banana.jpg" alt="Featured Products" />
+                        <div class="carousel-caption">
+                            <h3>@product.Name</h3>
+                            <p>@product.Description</p>
+                            <p>@product.Price</p>
+                            <a href="/Products/Details/2" class="btn-custom" style="color: white;">Details</a>
+                            <!--TODO: fix details button-->
+                        </div>
+                    </li>
+                }
             </ul>
         </div>
     </section>

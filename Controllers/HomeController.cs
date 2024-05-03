@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Online_store.Data;
 using Online_store.Models;
 using System.Diagnostics;
 
@@ -6,16 +8,34 @@ namespace Online_store.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //Remove Logger???
+        //private readonly ILogger<HomeController> _logger;
+        private readonly OnlineStoreContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
+
+        public HomeController(OnlineStoreContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var featuredProducts = _context.Products
+                .Where(p => p.QuantityInStock > 200)
+                .Select(p => new ProductModel
+                {
+                    ProductId = p.ProductId,
+                    Name = p.Name,
+                    Description = p.Description,
+                    Price = p.Price
+                })
+                .ToList();
+
+            return View(featuredProducts);
         }
 
         public IActionResult Product()
@@ -38,7 +58,7 @@ namespace Online_store.Controllers
             return View();
         }
 
-        public IActionResult Verify() 
+        public IActionResult Verify()
         {
             return View();
         }
