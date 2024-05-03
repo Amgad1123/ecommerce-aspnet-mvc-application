@@ -8,21 +8,15 @@
     <title>@ViewData["Cart"]</title>
     <style>
         body {
-            margin: 0;
             background-color: #d2b48c;
             color: #2e2d2c;
             font-family: Arial, sans-serif;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            padding: 0px;
         }
 
         h1 {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         table {
@@ -31,11 +25,18 @@
             margin-bottom: 20px;
         }
 
-        th, td {
-            padding: 10px;
-            border-bottom: 1px solid #8b572a;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0px;
         }
 
+        th, td {
+            border: 1px solid #8b572a;
+            padding: 8px;
+            text-align: left;
+        }
+         
         th {
             background-color: #4d2d1f;
             color: #fff;
@@ -46,7 +47,7 @@
             text-align: right;
         }
 
-        .btn-custom {
+        .container .btn-custom {
             background-color: #8b572a;
             color: #fff;
             border: none;
@@ -57,15 +58,16 @@
             transition: background-color 0.3s ease;
         }
 
-            .btn-custom:hover {
+            .container .btn-custom:hover {
                 background-color: #634329;
             }
+     
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>Your Shopping Cart</h1>
+        <h1 style="color: white;">Your Shopping Cart</h1>
         <table>
             <thead>
                 <tr>
@@ -90,7 +92,7 @@
                 </tr>
             </tfoot>
         </table>
-        <a href="/" class="btn-custom">Continue Shopping</a>
+        <a href="/Products" class="btn-custom" style="color: white;">Continue Shopping</a>
     </div>
 </body>
 </html>
