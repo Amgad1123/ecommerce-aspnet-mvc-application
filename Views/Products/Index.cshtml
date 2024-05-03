@@ -64,6 +64,19 @@
             vertical-align: middle;
         }
 
+        .container .btn-custom {
+            background-color: #8b572a;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .container .btn-custom:hover {
+                background-color: #634329;
+            }
+
         .sale-container {
             background-color: #634329;
             padding: 9%;
@@ -87,8 +100,10 @@
 
     <h1 style="color: white;">@ViewData["Title"]</h1>
 
+    <!-- TODO: Sales Containers 
     <div class="sale-container left"></div>
     <div class="sale-container right"></div>
+    -->
 
     <div class="row">
         <div class="col-md-8 offset-md-2">
@@ -110,10 +125,9 @@
                 <thead>
                     <tr>
                         <th>Product Name</th>
-                        <th>Description</th>
                         <th>Price</th>
                         <th>Stock Availability</th>
-                        <th>Actions (to be implemented)</th>
+                        <th>Learn More</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -121,15 +135,13 @@
                     {
                         <tr>
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.Name)</td>
-                            <td class="align-middle">@Html.DisplayFor(modelItem => item.Description)</td>
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.Price)</td>
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.QuantityInStock)</td>
                             <td class="align-middle">
                                 <a asp-action="Details" asp-route-id="@item.ProductId">
-                                    <button type="button" class="btn btn-primary" style="background-color: #967969; color: #fff;">View Details</button>
+                                    <button type="button" class="btn-custom" style="text-decoration: none;">View Details</button>
                                 </a>
                             </td>
-
 
                         </tr>
                     }

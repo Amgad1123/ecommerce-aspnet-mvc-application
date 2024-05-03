@@ -9,14 +9,42 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/styles.css">
 </head>
+<style>
+    body {
+        background-color: #d2b48c;
+        color: #2e2d2c;
+        font-family: Arial, sans-serif;
+        padding: 0px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .container .btn-custom {
+        background-color: #8b572a;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        font-size: 1rem;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+        .container .btn-custom:hover {
+            background-color: #634329;
+        }
+</style>
 <body>
 
     <div class="container">
-        <h1>Product Details</h1>
+        <h1 style ="color: white;">Product Details</h1>
 
         @if (Model != null)
         {
-            <ul class="product-details">
+            <ul class="product-details" style="color: white;">
                 <li>Name: @Model.Name</li>
                 <li>Description: @Model.Description</li>
                 <li>Price: @Model.Price.ToString("C")  </li>
@@ -28,6 +56,6 @@
             <p class="error-message">Product not found!</p>
         }
     </div>
-
+    <a href="/Products" class="btn-custom">Go Back</a>
 </body>
 </html>
