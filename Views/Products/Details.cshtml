@@ -1,13 +1,33 @@
-﻿@{
-    ViewData["Title"] = "WheyProtein";
+﻿@model ProductModel
+@{
+    ViewData["Title"] = "Product Details";
 }
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hello World!</title>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/styles.css">
 </head>
 <body>
-    <h1>Hello World!</h1>
+
+    <div class="container">
+        <h1>Product Details</h1>
+
+        @if (Model != null)
+        {
+            <ul class="product-details">
+                <li>Name: @Model.Name</li>
+                <li>Description: @Model.Description</li>
+                <li>Price: @Model.Price.ToString("C")  </li>
+                <li>Quantity In Stock: @Model.QuantityInStock</li>
+            </ul>
+        }
+        else
+        {
+            <p class="error-message">Product not found!</p>
+        }
+    </div>
+
 </body>
 </html>
