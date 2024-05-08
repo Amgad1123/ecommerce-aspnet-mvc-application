@@ -1,0 +1,60 @@
+﻿/* account.css */
+
+body {
+    background-color: #d2b48c;
+    color: #2e2d2c;
+    font-family: Arial, sans-serif;
+}
+
+.loginForm {
+    margin-top: 30px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px
+}
+
+h4 {
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.form-control {
+    border-color: #8b572a;
+    margin-bottom: 20px;
+}
+
+.btn-success {
+    background-color: #8b572a;
+    border-color: #8b572a;
+    border-radius: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+    .btn-success:hover {
+        background-color: #634329;
+        border-color: #634329;
+    }
+
+.text-danger {
+    color: #dc3545;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.personal-text {
+    font-style: italic;
+    color: #6b6a69;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}

@@ -10,100 +10,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
-    <style>
-        body {
-            background-color: #d2b48c; 
-            color: #2e2d2c; 
-            font-family: Arial, sans-serif; 
-            padding: 0px; 
-        }
-
-        h1 {
-            text-align: center; 
-            margin-bottom: 30px;
-        }
-
-        table {
-            width: 100%; 
-            border-collapse: collapse; 
-            margin-bottom: 20px; 
-        }
-
-        th, td {
-            border: 1px solid #8b572a; 
-            padding: 8px; 
-            text-align: left;
-        }
-
-        th {
-            background-color: #8b572a; 
-            color: #fff; 
-        }
-
-        input[type="text"] {
-            padding: 8px; 
-            border: 1px solid #8b572a; 
-            border-radius: 5px; 
-            margin-right: 10px;
-        }
-
-        button[type="submit"] {
-            background-color: #8b572a;
-            color: #fff; 
-            border: none; 
-            padding: 8px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-            button[type="submit"]:hover {
-                background-color: #634329;
-            }
-
-        .align-middle {
-            vertical-align: middle;
-        }
-
-        .container .btn-custom {
-            background-color: #8b572a;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-            .container .btn-custom:hover {
-                background-color: #634329;
-            }
-
-        .sale-container {
-            background-color: #634329;
-            padding: 9%;
-            max-width: 30%;
-            height: calc(100vh - 250px);
-            position: absolute;
-            border: 10px solid #D2B48C;
-            box-sizing: border-box;
-        }
-
-        .left {
-            left: 0;
-        }
-
-        .right {
-            right: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="~/css/tables.css" >
 </head>
 <body>
 
     <h1 style="color: white;">@ViewData["Title"]</h1>
-
-    <!-- TODO: Sales Containers 
-    <div class="sale-container left"></div>
-    <div class="sale-container right"></div>
-    -->
 
     <div class="row">
         <div class="col-md-8 offset-md-2">
@@ -113,9 +24,8 @@
                     <td colspan="5">
                         <form asp-controller="Products" asp-action="Search" method="get">
                             <input type="text" name="input" placeholder="Search Products">
-                            <button type="submit">Search</button>
+                            <button type="submit" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Search</button>
                         </form>
-
                     </td>
                 </tr>
             </tbody>
@@ -140,7 +50,7 @@
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.QuantityInStock)</td>
                             <td class="align-middle">
                                 <a asp-action="Details" asp-route-id="@item.ProductId">
-                                    <button type="button" class="btn-custom" style="text-decoration: none;">View Details</button>
+                                    <button type="button" class="btn-custom" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">View Details</button>
                                 </a>
                             </td>
 

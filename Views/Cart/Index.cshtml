@@ -6,63 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Cart"]</title>
-    <style>
-        body {
-            background-color: #d2b48c;
-            color: #2e2d2c;
-            font-family: Arial, sans-serif;
-            padding: 0px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0px;
-        }
-
-        th, td {
-            border: 1px solid #8b572a;
-            padding: 8px;
-            text-align: left;
-        }
-         
-        th {
-            background-color: #4d2d1f;
-            color: #fff;
-            text-align: left;
-        }
-
-        .total {
-            text-align: right;
-        }
-
-        .container .btn-custom {
-            background-color: #8b572a;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            font-size: 1rem;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-            .container .btn-custom:hover {
-                background-color: #634329;
-            }
-     
-    </style>
+    <link rel="stylesheet" href="~/css/tables.css">
 </head>
 
 <body>
@@ -92,7 +36,7 @@
                 </tr>
             </tfoot>
         </table>
-        <a href="/Products" class="btn-custom" style="color: white;">Continue Shopping</a>
+        <a href="/Products" class="btn-custom" style="color: white; text-decoration: none;">Continue Shopping</a>
     </div>
 </body>
 </html>

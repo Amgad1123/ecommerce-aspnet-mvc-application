@@ -1,4 +1,4 @@
-﻿/* styles.css */
+﻿/* details.css */
 
 body {
     background-color: #d2b48c;
@@ -6,47 +6,71 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.container {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    text-align: center;
-    max-width: 400px;
-    animation: fadeIn 1s ease-in-out;
+.page-specific-footer {
+    display: none;
 }
 
-h1 {
+.container {
+    background-color: #fff; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.container .product-image {
+    background-color: #d2b48c;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0px;
+    text-align: center;
+    max-width: 400px;
+    animation: fadeInContainer 1s ease-in-out;
+}
+
+@keyframes fadeInContainer {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.container h1 {
     margin-bottom: 30px;
     color: #8b572a;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
-
-.product-details {
+.container .product-details {
     list-style-type: none;
     padding: 0;
-    text-align: left;
+    text-align: center;
     margin-bottom: 20px;
+    color: #8b572a;
+    animation: fadeInContainer 1s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-    .product-details li {
+    .container .product-details li {
         margin-bottom: 10px;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
 
-.error-message {
+.container .error-message {
     color: #c62828;
     font-style: italic;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.btn-custom {
+.container .btn-custom {
     background-color: #8b572a;
     color: #fff;
     border: none;
@@ -58,11 +82,11 @@ h1 {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-    .btn-custom:hover {
+    .container .btn-custom:hover {
         background-color: #634329;
     }
 
-.product-image {
+.container .product-image {
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -72,16 +96,6 @@ h1 {
     animation: fadeInImage 1s ease-in-out;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
 @keyframes fadeInImage {
     from {
         opacity: 0;
@@ -92,37 +106,3 @@ h1 {
         opacity: 1;
         transform: scale(1);
     }
-}
-
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInImage {
-    from {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.container {
-    /* Other container styles */
-    animation: fadeIn 1s ease-in-out;
-}
-
-.product-image {
-    /* Other image styles */
-    animation: fadeInImage 1s ease-in-out;
-}
