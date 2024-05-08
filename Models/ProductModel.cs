@@ -14,7 +14,7 @@ public partial class ProductModel
     }
     [Key]
     public int ProductId { get; set; }
-
+    public int ProductID { get; internal set; }
     public string Name { get; set; }
 
     public string Description { get; set; }

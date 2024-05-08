@@ -65,34 +65,48 @@
     </style>
 </head>
 
+<
+<
 <body>
-    <div class="container">
-        <h1 style="color: white;">Your Shopping Cart</h1>
-        <table>
-            <thead>
+    <h1>Shopping Cart</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
+                    <td>@item.ProductId</td>
+                    <td>@item.Quantity</td>
+                    <td>
+                        <form method="post" asp-action="RemoveFromCart">
+                            <input type="hidden" name="productId" value="@item.ProductId" />
+                            <button type="submit">Remove from Cart</button>
+                        </form>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Sample Product</td>
-                    <td>$10.00</td>
-                    <td>2</td>
-                    <td>$20.00</td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="3" class="total">Total:</td>
-                    <td>$20.00</td>
-                </tr>
-            </tfoot>
-        </table>
-        <a href="/Products" class="btn-custom" style="color: white;">Continue Shopping</a>
+            }
+        </tbody>
+    </table>
+
+
+    <div style="margin-top: 20px;">
+        <h2>Summary</h2>
+        <div>
+            Subtotal: $@ViewBag.Subtotal
+        </div>
+        <div>
+            Tax (7.5%): $@ViewBag.Tax
+        </div>
+        <div>
+            Total: $@ViewBag.Total
+        </div>
     </div>
+
 </body>
 </html>
