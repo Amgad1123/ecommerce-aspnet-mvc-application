@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Online_store.Models;
+public interface IOrderRepository
+{
+    OrderModel GetOrderById(int orderId);
+    void SaveOrder(OrderModel order);
+    void DeleteOrder(int orderId);
+}
 
 public partial class OrderModel
 {
@@ -17,6 +23,23 @@ public partial class OrderModel
     public decimal TotalAmount { get; set; }
 
     public string Status { get; set; }
+    public OrderModel GetOrderById(int orderId)
+    {
+        // TODO: Implement logic to fetch order by ID
+        throw new NotImplementedException();
+    }
+
+    public void SaveOrder(OrderModel order)
+    {
+        // TODO: Implement logic to save/update order
+        throw new NotImplementedException();
+    }
+
+    public void DeleteOrder(int orderId)
+    {
+        // TODO: Implement logic to delete order by ID
+        throw new NotImplementedException();
+    }
 
     public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 

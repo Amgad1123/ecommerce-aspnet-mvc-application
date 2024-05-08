@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<ProductModel>
+
+@{
     ViewData["Title"] = "Home";
 }
 
@@ -181,16 +183,22 @@
                 @foreach (var product in Model)
                 {
                     <li class="slide" data-active>
-                        <img src="~/images/banana.jpg" alt="Featured Products" />
-                        <div class="carousel-caption">
+                        <img src="~/images/@(product.GetNameNoSpace()).jpg" alt="Featured Products" />
+                        <div class="carousel-caption" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
                             <h3>@product.Name</h3>
                             <p>@product.Description</p>
                             <p>@product.Price</p>
-                            <a href="/Products/Details/2" class="btn-custom" style="color: white;">Details</a>
-                            <!--TODO: fix details button-->
+                            @{
+                                // Define detailsUrl within the Razor code block
+                                var prodID = product.ProductId;
+                                var detailsUrl = "/Products/Details/" + prodID;
+                            }
+                            <a href="@detailsUrl" class="btn-custom" style="color: white;">Details</a>
                         </div>
                     </li>
                 }
+
+
             </ul>
         </div>
     </section>
