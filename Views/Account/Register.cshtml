@@ -10,57 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <style>
-        body {
-            background-color: #d2b48c; 
-            color: #2e2d2c; 
-            font-family: Arial, sans-serif; 
-        }
-
-        .loginForm {
-            margin-top: 50px;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 30px; 
-        }
-
-        form {
-            background-color: #fff; 
-            padding: 20px; 
-            border-radius: 5px; 
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-        }
-
-        h4 {
-            margin-bottom: 20px; 
-        }
-
-        .form-control {
-            border-color: #8b572a;
-        }
-
-        .btn-success {
-            background-color: #8b572a;
-            border-color: #8b572a;
-        }
-
-            .btn-success:hover {
-                background-color: #634329;
-                border-color: #634329;
-            }
-
-        .text-danger {
-            color: #dc3545;
-        }
-
-        .personal-text {
-            font-style: italic;
-            color: #6b6a69; 
-        }
-    </style>
+    <link rel="stylesheet" href="~/css/account.css">
 </head>
 <body>
 
@@ -69,17 +19,17 @@
             <h2 style="color: white;">Register Now!</h2>
             <p class="personal-text" style="color: white;">Let's get started with your new account.</p>
             <form asp-controller="Account" asp-action="Register" method="post" class="form-horizontal" role="form">
-                <h4>Create a New Account</h4>
+                <h4 style ="color: #8b572a;">Create a New Account</h4>
                 <hr />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
+                <div class="form-group" style="color: #8b572a;">
                     <label asp-for="Username" class="col-md-2 control-label"></label>
                     <div class="col-md-10">
                         <input asp-for="Username" class="form-control" placeholder="Choose a username" />
                         <span asp-validation-for="Username" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="color: #8b572a;">
                     <label asp-for="PasswordHash" class="col-md-2 control-label"></label>
                     <div class="col-md-10">
                         <input asp-for="PasswordHash" class="form-control" placeholder="Create a password" />

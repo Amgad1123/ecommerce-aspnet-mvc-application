@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<ProductModel>
+
+@{
     ViewData["Title"] = "Home";
 }
 
@@ -9,153 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
-
-    <style>
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            background-color: #d2b48c;
-            color: #2e2d2c;
-            font-family: Arial, sans-serif;
-        }
-
-        .jumbotron {
-            background-color: #4d2d1f;
-            color: #fff;
-            padding: 35px 25px;
-            text-align: center;
-            margin: 0 auto;
-            max-width: 80%;
-        }
-
-            .jumbotron h1 {
-                font-size: 3.5rem;
-                margin-bottom: 20px;
-            }
-
-            .jumbotron p {
-                font-size: 1.5rem;
-                margin-bottom: 20px;
-            }
-
-        .btn-custom {
-            background-color: #8b572a;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1.25rem;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-            .btn-custom:hover {
-                background-color: #634329;
-            }
-
-        .catchphrase {
-            font-style: italic;
-            font-size: 1.2rem;
-        }
-
-        .cart-button {
-            position: absolute;
-            top: 8px;
-            right: 20px;
-            padding: 7px 30px;
-            font-size: 1rem;
-            border-radius: 8px;
-            background-color: #a77f4e;
-        }
-
-            .cart-button:hover {
-                background-color: #d19b13;
-            }
-
-        .logo {
-            display: block;
-            margin: 0 auto 20px;
-        }
-
-        hr {
-            width: 80%;
-            margin: 10px auto;
-        }
-
-        .carousel > ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            width: 100%;
-            height: 100%;
-        }
-
-        .carousel {
-            margin: auto;
-            width: 55.57vw;
-            height: 60vh;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-            .slide > img {
-                display: block;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-            }
-
-            .slide[data-active] {
-                opacity: 1;
-            }
-
-        .carousel-button {
-            position: absolute;
-            z-index: 2;
-            background: none;
-            border: none;
-            font-size: 4rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: rgba(255, 255, 255, .5);
-            cursor: pointer;
-            border-radius: .25rem;
-            padding: 0.5rem;
-            background-color: rgba(0, 0, 0, .1);
-            transition: color 0.3s ease, background-color 0.3s ease;
-        }
-
-            .carousel-button:hover,
-            .carousel-button.focus {
-                color: white;
-                background-color: rgba(0, 0, 0, .2);
-            }
-
-            .carousel-button:focus {
-                outline: 1px solid black;
-            }
-
-            .carousel-button.prev {
-                left: 1rem;
-            }
-
-
-            .carousel-button.next {
-                right: 1rem;
-            }
-
-    </style>
+    <link rel="stylesheet" href="~/css/carousel.css">
 </head>
 <body>
 
@@ -169,8 +25,8 @@
     <hr />
 
     <section aria-label="Featured Products">
-        <h1 align="center" style="color: white;">Featured Products</h1>
-        <p align="center" style="color: white;">Our Top Picks!</p>
+        <h1 align="center" style="color: white; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);">Featured Products</h1>
+        <p align="center" style="color: white; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);">Our Top Picks!</p>
 
         <hr />
 
@@ -181,16 +37,21 @@
                 @foreach (var product in Model)
                 {
                     <li class="slide" data-active>
-                        <img src="~/images/banana.jpg" alt="Featured Products" />
-                        <div class="carousel-caption">
+                        <img src="~/images/@(product.GetNameNoSpace()).jpg" alt="Featured Products" />
+                        <div class="carousel-caption" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
                             <h3>@product.Name</h3>
                             <p>@product.Description</p>
                             <p>@product.Price</p>
-                            <a href="/Products/Details/2" class="btn-custom" style="color: white;">Details</a>
-                            <!--TODO: fix details button-->
+                            @{
+                                var prodID = product.ProductId;
+                                var detailsUrl = "/Products/Details/" + prodID;
+                            }
+                            <a href="@detailsUrl" class="btn-custom" style="color: white;">Details</a>
                         </div>
                     </li>
                 }
+
+
             </ul>
         </div>
     </section>

@@ -1,12 +1,26 @@
-﻿public class CartItem
-{
-    public int ProductId { get; set; }
-    public int Quantity { get; set; }
-}
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
-public class Cart
+namespace Online_store.Models
 {
-    public List<CartItem> Items { get; set; } = new List<CartItem>();
+    public interface ICartRepository
+    {
+        Cart GetCart();
+        void AddItem(int productId, int quantity);
+        void RemoveItem(int productId);
+        void ClearCart();
+    }
+
+    public class CartItem
+    {
+        public int ProductId { get; set; }
+        public int Quantity { get; set; }
+    }
+
+    public class Cart : ICartRepository
+    {
+        public List<CartItem> Items { get; set; } = new List<CartItem>();
 
     public void AddItem(int productId, int quantity)
     {
