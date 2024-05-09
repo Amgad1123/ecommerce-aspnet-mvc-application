@@ -22,37 +22,17 @@ namespace Online_store.Models
     {
         public List<CartItem> Items { get; set; } = new List<CartItem>();
 
-        public Cart GetCart()
+    public void AddItem(int productId, int quantity)
+    {
+        var existingItem = Items.FirstOrDefault(item => item.ProductId == productId);
+
+        if (existingItem != null)
         {
-            // TODO: Implement logic to get the cart from the data source
-            throw new NotImplementedException();
+            existingItem.Quantity += quantity;
         }
-
-        public void AddItem(int productId, int quantity)
+        else
         {
-            // Placeholder implementation provided in the original code
-            var existingItem = Items.FirstOrDefault(item => item.ProductId == productId);
-
-            if (existingItem != null)
-            {
-                existingItem.Quantity += quantity;
-            }
-            else
-            {
-                Items.Add(new CartItem { ProductId = productId, Quantity = quantity });
-            }
-        }
-
-        public void RemoveItem(int productId)
-        {
-            // TODO: Implement logic to remove an item from the cart
-            throw new NotImplementedException();
-        }
-
-        public void ClearCart()
-        {
-            // TODO: Implement logic to clear the cart
-            throw new NotImplementedException();
+            Items.Add(new CartItem { ProductId = productId, Quantity = quantity });
         }
     }
 }

@@ -50,6 +50,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\CartItem.cs" />
     <Compile Remove="Models\CartViewModel.cs" />
   </ItemGroup>
 
