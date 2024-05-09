@@ -21,7 +21,7 @@ To set up NutriActive Supplements locally, follow these steps:
 ## Usage
 Once the application is running in your web browser, you can start exploring the catalog and view detailed product descriptions.
 
-![Website Home Page](/Downloads/homePage.png)
+![Website Home Page](/wwwroot/images/homePage.png)
 
 ---
 
