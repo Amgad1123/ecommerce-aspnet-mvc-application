@@ -1,4 +1,19 @@
-﻿
+﻿@model List<ProductModel>
+@using Online_store.Controllers;
+
+@{
+    ViewData["Title"] = "Products";
+
+    // Calculate subtotal
+    decimal subtotal = CartController.CalculateSubtotal(Model);
+
+    // Calculate tax
+    decimal tax = CartController.CalculateTax(subtotal);
+
+    // Calculate total
+    decimal total = CartController.CalculateGrandTotal(subtotal);
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +24,7 @@
     <link rel="stylesheet" href="~/css/tables.css">
 </head>
 
-<
-<
 <body>
-    <h1>Shopping Cart</h1>
     <table>
         <thead>
             <tr>
@@ -25,32 +37,40 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.ProductId</td>
-                    <td>@item.Quantity</td>
+                    <td>@item.Name</td>
+                    <td>@item.NumInCart</td>
                     <td>
                         <form method="post" asp-action="RemoveFromCart">
                             <input type="hidden" name="productId" value="@item.ProductId" />
+                            <div class="quantity">
+                                <input type="number" name="quantity" value="1" min="1" max="@item.NumInCart" />
+                            </div>
                             <button type="submit">Remove from Cart</button>
                         </form>
+
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 
-
     <div style="margin-top: 20px;">
         <h2>Summary</h2>
         <div>
-            Subtotal: $@ViewBag.Subtotal
+            Subtotal: $@subtotal
         </div>
         <div>
-            Tax (7.5%): $@ViewBag.Tax
+            Tax (7.5%): $@tax
         </div>
         <div>
-            Total: $@ViewBag.Total
+            Total: $@total
         </div>
     </div>
+
+    <div style="margin-top: 20px;">
+        <a href="@Url.Action("Index", "Checkout")" class="btn btn-success">Proceed to Checkout</a>
+    </div>
+
 
 </body>
 </html>
