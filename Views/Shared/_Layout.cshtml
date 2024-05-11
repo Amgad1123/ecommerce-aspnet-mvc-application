@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Online_store.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/navbar.css">
+    <link rel="stylesheet" href="~/css/navbar.css" />
+    <link rel="stylesheet" href="~/css/popup.css" />
 </head>
 <body>
     <header>
@@ -50,6 +51,41 @@
             @RenderBody()
         </main>
     </div>
+
+    @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+    @{
+        var logoffParam = HttpContextAccessor.HttpContext?.Request.Query.ContainsKey("logoff") ?? false && HttpContextAccessor.HttpContext.Request.Query["logoff"] == "true";
+    }
+
+    @if (logoffParam)
+    {
+        <div id="logoffPopup" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>You are logged off. Login to continue shopping!</p>
+            </div>
+        </div>
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById("logoffPopup");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // Show the modal when the page loads
+            window.onload = function () {
+                modal.style.display = "block";
+            }
+        </script>
+    }
+
 
     <footer class="border-top footer text-muted page-specific-footer">
         <div class="container" style="color: white;">
