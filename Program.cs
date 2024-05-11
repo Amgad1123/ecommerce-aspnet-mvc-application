@@ -65,6 +65,11 @@ namespace Online_store
                 name: "default",
                 pattern: "{controller=Sale}/{action=Sale}/{id?}");
 
+            app.MapControllerRoute(
+                name: "logoff",
+                pattern: "{controller=Home}/{action=LogOff}/{id?}");
+
+
             app.Run();
 
         }
