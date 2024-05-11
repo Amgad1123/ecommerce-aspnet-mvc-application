@@ -8,6 +8,7 @@
 <head>
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/details.css">
+    <link rel="stylesheet" href="~/css/addbtn.css">
 </head>
 <body>
 
@@ -27,18 +28,13 @@
             <div>
 
             </div>
-            <!-- Fix this shit david pls-->
-            <form method="post" action="/Cart/AddToCart">
+            <form method="post" action="/Cart/AddToCart" class="add-to-cart-form">
                 <input type="hidden" name="productId" value="@Model.ProductId" />
                 <div class="quantity">
                     <input type="number" name="quantity" value="1" min="1" max="@Model.QuantityInStock" />
                 </div>
-                <div class="btn-custom">
-                    <button type="submit">Add to Cart</button>
-                </div>
+                <button type="submit" class="btn-custom">Add to Cart</button>
             </form>
-
-
 
         }
         else
