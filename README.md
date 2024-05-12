@@ -35,3 +35,10 @@ Once the application is running in your web browser, you can start exploring the
 ---
 
 Thank you for choosing NutriActive Supplements for your supplement needs! If you have any questions, feedback, or encounter any issues, feel free to open an issue or contact us directly. Happy shopping!
+
+---
+
+![Website Home Page](/wwwroot/images/tests.png)
+
+We were able to get test cases to run and pass locally but ran into issues pushing the test cases onto the git repo. Rather than submitting nothing, we thought we would submit at least some evidence.
+
