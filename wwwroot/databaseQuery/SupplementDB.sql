@@ -56,7 +56,9 @@ CREATE TABLE Products (
     Name VARCHAR(100) NOT NULL,
     Description TEXT,
     Price DECIMAL(10, 2) NOT NULL,
-    QuantityInStock INT NOT NULL
+    QuantityInStock INT NOT NULL,
+	NumInCart INT
+
 
     -- Add more fields as needed
 );
@@ -146,27 +148,28 @@ INSERT INTO Users (Username, Email, PasswordHash, ShippingAddressID, BillingAddr
 ('user3', 'user3@example.com', 'password3', 4, 5);
 
 -- Insert data into Products table
-INSERT INTO Products (Name, Description, Price, QuantityInStock) VALUES
-('Whey Protein', 'High-quality protein powder for muscle building', 29.99, 5000),
-('Multivitamin', 'Daily multivitamin for overall health', 19.99, 250),
-('Creatine Monohydrate', 'Creatine supplement for strength and endurance', 24.99, 234),
-('BCAA', 'Branched-chain amino acids for muscle recovery', 22.99, 690),
-('Banana', 'A single ripe banana', 0.49, 500),
-('Whey Protein - Chocolate', 'High-quality chocolate-flavored protein powder for muscle building', 29.99, 100),
-('Whey Protein - Vanilla', 'High-quality vanilla-flavored protein powder for muscle building', 29.99, 100),
-('Whey Protein - Strawberry', 'High-quality strawberry-flavored protein powder for muscle building', 29.99, 100),
-('Casein Protein - Chocolate', 'Slow-digesting chocolate-flavored protein powder for nighttime muscle recovery', 34.99, 75),
-('Casein Protein - Vanilla', 'Slow-digesting vanilla-flavored protein powder for nighttime muscle recovery', 34.99, 75),
-('Casein Protein - Cookies and Cream', 'Slow-digesting cookies and cream-flavored protein powder for nighttime muscle recovery', 34.99, 75),
-('XtremeGains Whey Protein', 'Premium whey protein powder for maximum gains', 39.99, 120),
-('MuscleMax Nitro Whey Isolate', 'Advanced whey protein isolate formula for rapid muscle growth', 44.99, 90),
-('EpicMuscle ISO100 Whey Protein', 'Fast-absorbing whey protein isolate for intense workouts', 49.99, 80),
-('SuperVit Men Multivitamin', 'Specially formulated multivitamin for men to support overall health', 19.99, 50),
-('SuperVit Women Multivitamin', 'Specially formulated multivitamin for women to support overall health', 19.99, 50),
-('OrganicLife Organic Multivitamin', 'Certified organic multivitamin with whole food ingredients', 29.99, 40),
-('PureGain Creatine Monohydrate', 'Pure creatine monohydrate powder for strength and endurance', 24.99, 75),
-('MuscleFuel BCAA', 'Branched-chain amino acids for muscle recovery and growth', 22.99, 80),
-('MaxPower Xtend BCAA', 'Intra-workout BCAA supplement for enhanced performance and recovery', 27.99, 70);
+INSERT INTO Products (Name, Description, Price, QuantityInStock, NumInCart) VALUES 
+('Whey Protein', 'High-quality protein powder for muscle building', 29.99, 5000, 0),
+('Multivitamin', 'Daily multivitamin for overall health', 19.99, 250, 0),
+('Creatine Monohydrate', 'Creatine supplement for strength and endurance', 24.99, 234, 0),
+('BCAA', 'Branched-chain amino acids for muscle recovery', 22.99, 690, 0),
+('Banana', 'A single ripe banana', 0.49, 500, 0),
+('Whey Protein - Chocolate', 'High-quality chocolate-flavored protein powder for muscle building', 29.99, 100, 0),
+('Whey Protein - Vanilla', 'High-quality vanilla-flavored protein powder for muscle building', 29.99, 100, 0),
+('Whey Protein - Strawberry', 'High-quality strawberry-flavored protein powder for muscle building', 29.99, 100, 0),
+('Casein Protein - Chocolate', 'Slow-digesting chocolate-flavored protein powder for nighttime muscle recovery', 34.99, 75, 0),
+('Casein Protein - Vanilla', 'Slow-digesting vanilla-flavored protein powder for nighttime muscle recovery', 34.99, 75, 0),
+('Casein Protein - Cookies and Cream', 'Slow-digesting cookies and cream-flavored protein powder for nighttime muscle recovery', 34.99, 75, 0),
+('XtremeGains Whey Protein', 'Premium whey protein powder for maximum gains', 39.99, 120, 0),
+('MuscleMax Nitro Whey Isolate', 'Advanced whey protein isolate formula for rapid muscle growth', 44.99, 90, 0),
+('EpicMuscle ISO100 Whey Protein', 'Fast-absorbing whey protein isolate for intense workouts', 49.99, 80, 0),
+('SuperVit Men Multivitamin', 'Specially formulated multivitamin for men to support overall health', 19.99, 50, 0),
+('SuperVit Women Multivitamin', 'Specially formulated multivitamin for women to support overall health', 19.99, 50, 0),
+('OrganicLife Organic Multivitamin', 'Certified organic multivitamin with whole food ingredients', 29.99, 40, 0),
+('PureGain Creatine Monohydrate', 'Pure creatine monohydrate powder for strength and endurance', 24.99, 75, 0),
+('MuscleFuel BCAA', 'Branched-chain amino acids for muscle recovery and growth', 22.99, 80, 0),
+('MaxPower Xtend BCAA', 'Intra-workout BCAA supplement for enhanced performance and recovery', 27.99, 70, 0);
+
 
 
 
@@ -197,44 +200,6 @@ INSERT INTO Sales (StartDate, EndDate, ProductID,  Price, Name, SalesPercentage)
 ('2024-03-03 10:00:00', '2024-03-10 23:59:59', 1 , 0.00, 'Blank', .5),
 ('2024-04-04 06:00:00', '2024-04-14 23:59:59', 2 ,  0.00, 'Blank', .5);
 
-
-
--- test queries
-
--- Retrieve all users along with their shipping addresses
-SELECT u.Username, u.Email, a.StreetAddress, c.CityName, s.StateName, co.CountryName
-FROM Users u
-JOIN Addresses a ON u.ShippingAddressID = a.AddressID
-JOIN Cities c ON a.CityID = c.CityID
-JOIN States s ON c.StateID = s.StateID
-JOIN Countries co ON s.CountryID = co.CountryID;
-
--- List all orders with their associated products and quantities
-SELECT o.OrderID, p.Name AS ProductName, oi.Quantity
-FROM Orders o
-JOIN OrderItems oi ON o.OrderID = oi.OrderID
-JOIN Products p ON oi.ProductID = p.ProductID;
-
--- Calculate total revenue for each order
-SELECT OrderID, SUM(Amount) AS TotalRevenue
-FROM Transactions
-GROUP BY OrderID;
-
--- Find out which products are out of stock
-SELECT Name AS OutOfStockProducts
-FROM Products
-WHERE QuantityInStock = 0;
-
--- List all users who have placed orders
-SELECT DISTINCT u.Username
-FROM Users u
-JOIN Orders o ON u.UserID = o.UserID;
-
-
--- List all Sales with their Products
-SELECT Sales.SalesID, Sales.StartDate, Sales.EndDate, Sales.SalesPercentage, Products.Price, Products.Name 
-FROM Sales 
-JOIN Products  ON Sales.ProductID = Products.ProductID;
 
 
 

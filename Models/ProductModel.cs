@@ -30,6 +30,8 @@ public partial class ProductModel : IProductRepository
     public decimal Price { get; set; }
 
     public int QuantityInStock { get; set; }
+
+    public int NumInCart { get; set; }
     public ProductModel GetProductById(int productId)
     {
         // TODO: Implement this

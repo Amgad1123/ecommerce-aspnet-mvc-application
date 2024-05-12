@@ -8,6 +8,7 @@
 <head>
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/details.css">
+    <link rel="stylesheet" href="~/css/addbtn.css">
 </head>
 <body>
 
@@ -24,6 +25,16 @@
                 <li>Price: @Model.Price.ToString("C")</li>
                 <li>Quantity In Stock: @Model.QuantityInStock</li>
             </ul>
+            <div>
+
+            </div>
+            <form method="post" action="/Cart/AddToCart" class="add-to-cart-form">
+                <input type="hidden" name="productId" value="@Model.ProductId" />
+                <div class="quantity">
+                    <input type="number" name="quantity" value="1" min="1" max="@Model.QuantityInStock" />
+                </div>
+                <button type="submit" class="btn-custom">Add to Cart</button>
+            </form>
         }
         else
         {

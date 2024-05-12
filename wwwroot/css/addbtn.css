@@ -1,0 +1,24 @@
+﻿/* addbtn.css */
+
+.container form.add-to-cart-form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  
+}
+    .quantity {
+        position: relative;
+        top: 25px;
+    }
+    .container form.add-to-cart-form .quantity {
+        margin-top: 0px;
+    }
+    .container form.add-to-cart-form .quantity {
+        margin-right: 0px;
+    }
+    .container form.add-to-cart-form .btn-custom {
+        margin-left: 20px;
+    }
+    .container form.add-to-cart-form .btn-custom {
+        margin-bottom: -50px;
+    }

@@ -1,4 +1,19 @@
-﻿
+﻿@model List<ProductModel>
+@using Online_store.Controllers;
+
+@{
+    ViewData["Title"] = "Products";
+
+    // Calculate subtotal
+    decimal subtotal = CartController.CalculateSubtotal(Model);
+
+    // Calculate tax
+    decimal tax = CartController.CalculateTax(subtotal);
+
+    // Calculate total
+    decimal total = CartController.CalculateGrandTotal(subtotal);
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,48 +24,50 @@
     <link rel="stylesheet" href="~/css/tables.css">
 </head>
 
-<
-<
 <body>
-    <h1>Shopping Cart</h1>
     <table>
         <thead>
             <tr>
                 <th>Product</th>
                 <th>Quantity</th>
-                <th>Action</th>
+                <th>Remove Products</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.ProductId</td>
-                    <td>@item.Quantity</td>
+                    <td>@item.Name</td>
+                    <td>@item.NumInCart</td>
                     <td>
-                        <form method="post" asp-action="RemoveFromCart">
+                        <form method="post" asp-action="RemoveFromCart" class="remove-from-cart-form">
                             <input type="hidden" name="productId" value="@item.ProductId" />
+                            <input type="number" name="quantity" class="quantity" value="1" min="1" max="@item.NumInCart" />
                             <button type="submit">Remove from Cart</button>
                         </form>
+
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 
-
-    <div style="margin-top: 20px;">
+    <div style="margin-top: 20px; color: white; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);">
         <h2>Summary</h2>
         <div>
-            Subtotal: $@ViewBag.Subtotal
+            Subtotal: $@subtotal
         </div>
         <div>
-            Tax (7.5%): $@ViewBag.Tax
+            Tax (7.5%): $@tax
         </div>
         <div>
-            Total: $@ViewBag.Total
+            Total: $@total
         </div>
     </div>
 
+    <div style="margin-top: 20px;">
+        <a href="@Url.Action("Index", "Checkout")" class="btn-custom">Proceed to Checkout</a> 
+    </div>
 </body>
 </html>
+

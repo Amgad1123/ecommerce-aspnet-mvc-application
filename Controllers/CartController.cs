@@ -9,15 +9,17 @@ namespace Online_store.Controllers
     public class CartController : Controller
     {
         private readonly OnlineStoreContext _context;
-        private List<CartItem> _boughtItems = new List<CartItem>();
+        public List<ProductModel> _boughtItems = new List<ProductModel>();
 
         public CartController(OnlineStoreContext context)
         {
             _context = context;
         }
 
+
         public IActionResult Index()
         {
+            var ProductsInCart = _context.Products.Where(p => p.NumInCart > 0).ToList();
             var subtotal = CalculateSubtotal(_boughtItems);
             var tax = CalculateTax(subtotal);
             var total = subtotal + tax;
@@ -25,9 +27,7 @@ namespace Online_store.Controllers
             ViewBag.Subtotal = subtotal;
             ViewBag.Tax = tax;
             ViewBag.Total = total;
-
-
-            return View(_boughtItems);
+            return View(ProductsInCart);
         }
 
         [HttpPost]
@@ -37,47 +37,65 @@ namespace Online_store.Controllers
 
             if (product != null)
             {
-                _boughtItems.Add(new CartItem { ProductId = productId, Quantity = quantity });
-                //This action requires a button in the style of  <button type="submit">Add to Cart</button> on each item page
+                for (int i = 0; i < quantity; i++)
+                {
+                    _boughtItems.Add(product);
+                }
 
+                // Update product quantities
+                product.NumInCart += quantity;
+                product.QuantityInStock -= quantity;
+
+                _context.SaveChanges();
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Products");
         }
 
         [HttpPost]
-        public IActionResult RemoveFromCart(int productId)
+        public IActionResult RemoveFromCart(int productId, int quantity)
         {
-            var cartItemToRemove = _boughtItems.FirstOrDefault(item => item.ProductId == productId);
-            if (cartItemToRemove != null)
+            var product = _context.Products.FirstOrDefault(p => p.ProductId == productId);
+
+            if (product != null)
             {
-                _boughtItems.Remove(cartItemToRemove);
+                for (int i = 0; i < quantity; i++)
+                {
+                    _boughtItems.Remove(product);
+                }
+
+                // Update product quantities
+                product.NumInCart -= quantity;
+                product.QuantityInStock += quantity;
+
+                _context.SaveChanges();
             }
 
             return RedirectToAction("Index");
         }
 
-        private decimal CalculateSubtotal(List<CartItem> items)
+
+        public static decimal CalculateSubtotal(List<ProductModel> items)
         {
             decimal subtotal = 0;
             foreach (var item in items)
             {
-                var product = _context.Products.FirstOrDefault(p => p.ProductId == item.ProductId);
-                if (product != null)
+                if (item != null)
                 {
-                    subtotal += product.Price * item.Quantity;
+                    subtotal += Math.Round(item.Price * item.NumInCart, 2);
                 }
             }
             return subtotal;
         }
 
-        private decimal CalculateTax(decimal subtotal)
+
+        public static decimal CalculateTax(decimal subtotal)
         {
-            return subtotal * 0.075m;
+            return Math.Round((subtotal * 0.075m), 2);
         }
-        private decimal CalculateGrandTotal(decimal subtotal)
+        public static decimal CalculateGrandTotal(decimal subtotal)
         {
-            return subtotal * 1.075m;
+            return subtotal + CalculateTax(subtotal);
         }
     }
 }
