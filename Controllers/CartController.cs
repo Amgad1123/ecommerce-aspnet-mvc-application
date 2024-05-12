@@ -74,6 +74,25 @@ namespace Online_store.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public IActionResult ClearCart()
+        {
+            var ProductsInCart = _context.Products.Where(p => p.NumInCart > 0).ToList();
+
+            foreach (var product in ProductsInCart)
+            {
+                product.NumInCart = 0;
+                _context.SaveChanges();
+
+            }
+
+            _boughtItems.Clear(); // Clear the list of bought items
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
 
         public static decimal CalculateSubtotal(List<ProductModel> items)
         {

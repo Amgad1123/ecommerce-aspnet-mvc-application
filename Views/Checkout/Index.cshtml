@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout/Confirmation</title>
+</head>
+<body>
+
+    <div class="container">
+        <a asp-controller="Cart" asp-action="Index">Go back to Cart</a>
+
+        <h2>Checkout/Confirmation</h2>
+        <form>
+            <h4>Billing Information</h4>
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter your full name"><br><br>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email address"><br><br>
+
+            <label for="address">Address</label>
+            <input type="text" id="address" placeholder="Enter your address"><br><br>
+
+            <label for="city">City</label>
+            <input type="text" id="city" placeholder="Enter your city"><br><br>
+
+            <label for="zip">Zip Code</label>
+            <input type="text" id="zip" placeholder="Enter your zip code"><br><br>
+
+            <h4>Payment Information</h4>
+            <label for="cardNumber">Card Number</label>
+            <input type="text" id="cardNumber" placeholder="Enter your card number"><br><br>
+
+            <label for="expiryDate">Expiry Date</label>
+            <input type="text" id="expiryDate" placeholder="Enter card expiry date"><br><br>
+
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" placeholder="Enter card CVV"><br><br>
+
+            <a asp-controller="Checkout" asp-action="ThankYou" class="btn-custom" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
+                Confirm Order
+
+            </a>
+
+
+            </form>
+
+        <p>Your personal information is secure and will not be shared with third parties.</p>
+    </div>
+
+</body>
+</html>
