@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NutriActive Supplements", "NutriActive Supplements.csproj", "{125AC383-5844-4E0C-9FFA-C0934BDCE5C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutriTests", "..\NutriTests\NutriTests.csproj", "{BB9A6490-0E83-414E-8B57-7D2D0C5E603B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{125AC383-5844-4E0C-9FFA-C0934BDCE5C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{125AC383-5844-4E0C-9FFA-C0934BDCE5C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{125AC383-5844-4E0C-9FFA-C0934BDCE5C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB9A6490-0E83-414E-8B57-7D2D0C5E603B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB9A6490-0E83-414E-8B57-7D2D0C5E603B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB9A6490-0E83-414E-8B57-7D2D0C5E603B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB9A6490-0E83-414E-8B57-7D2D0C5E603B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
