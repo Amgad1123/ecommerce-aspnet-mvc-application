@@ -33,6 +33,7 @@
         <thead>
             <tr>
                 <th>Product</th>
+                <th>Price (Per Unit)</th>
                 <th>Quantity</th>
                 <th>Remove Products</th>
             </tr>
@@ -42,6 +43,7 @@
             {
                 <tr>
                     <td>@item.Name</td>
+                    <td>$ @item.Price</td>
                     <td>@item.NumInCart</td>
                     <td>
                         <form method="post" asp-action="RemoveFromCart" class="remove-from-cart-form">
