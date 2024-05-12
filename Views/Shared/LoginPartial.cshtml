@@ -1,6 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Identity.EntityFrameworkCore
 
+    <!--
+    Description: Page responsible for displaying the logoff button as well as its functionality 
+    Last Updated: 4/24/24
+    -->
+
 @inject SignInManager<IdentityUser> SignInManager
 
 @if (SignInManager.IsSignedIn(User))

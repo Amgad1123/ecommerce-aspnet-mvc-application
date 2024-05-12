@@ -12,6 +12,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/carousel.css">
+    <!--
+    Description: Page responsible for displaying the home page as well as featured products through a carousel 
+    Last Updated: 5/5/24
+    -->
 </head>
 <body>
 
@@ -30,6 +34,9 @@
 
         <hr />
 
+        <!--
+        Carousel works by displaying products pulled from database that have a quantity that is higher than 200 in stock 
+        -->
         <div class="carousel">
             <button class="carousel-button prev" onclick="prevSlide()">&#8678;</button>
             <button class="carousel-button next" onclick="nextSlide()">&#8680;</button>
