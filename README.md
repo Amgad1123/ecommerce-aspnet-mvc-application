@@ -14,9 +14,18 @@ NutriActive Supplements is committed to offering a diverse selection of suppleme
 
 ## Installation
 To set up NutriActive Supplements locally, follow these steps:
+NOTE: SSMS must be installed. 
 1. Clone this repository to your local machine.
 2. Open the project directory.
-3. Open the `index.html` file in your preferred web browser.
+3. Open solution explorer.
+4. Execute the database query from the wwwroot folder. (It will ask to connect to a database)
+5. Fill out information to connect to an SSMS database. (Server Name: The name you use to connect to a local database in SSMS, Authentication: Windows Authentication, Database Name: The database you are trying to connect to, Encrypt: Optional (False), Trust Server Certificate: True)
+6. After finished executing the database, open Server Explorer in View tab.
+7. Generate your connection string by going to Data Connections -> Add Connection.
+8. Fill out information to connect to the database you just created. (Alternatively, starting from step 3, start by running the query in an SSMS database and then creating a connection string to that database.)
+9. Copy the connection string by going to the newly generated connection string -> Properties.
+10. Paste that connection string using similar formating to what is in appsettings.json. 
+11. Run `https` or 'IIS Express' on your preferred web browser.
 
 ## Usage
 Once the application is running in your web browser, you can start exploring the catalog and view detailed product descriptions.
