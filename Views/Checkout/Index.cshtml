@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/tables.css">
     <title>Checkout/Confirmation</title>
 </head>
 <body>
 
-    <div class="container">
-        <a asp-controller="Cart" asp-action="Index">Go back to Cart</a>
+    <div class="container" style="color: white;">
+        <hr />
+
+        <a asp-controller="Cart" asp-action="Index" class="btn-custom" style="text-decoration: none;">Go back to Cart</a>
+        <hr />
 
         <h2>Checkout/Confirmation</h2>
         <form>
@@ -38,14 +42,14 @@
             <label for="cvv">CVV</label>
             <input type="text" id="cvv" placeholder="Enter card CVV"><br><br>
 
+            <hr />
+
             <a asp-controller="Checkout" asp-action="ThankYou" class="btn-custom" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
                 Confirm Order
-
             </a>
-
+            <hr />
 
             </form>
-
         <p>Your personal information is secure and will not be shared with third parties.</p>
     </div>
 

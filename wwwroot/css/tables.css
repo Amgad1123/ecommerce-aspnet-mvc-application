@@ -66,6 +66,8 @@ button[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
+    margin-bottom: 20px;
+    margin-right: 10px;
 }
 
     .btn-custom:hover {
