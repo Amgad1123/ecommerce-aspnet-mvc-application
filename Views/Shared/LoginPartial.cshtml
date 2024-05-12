@@ -12,7 +12,7 @@
 {
 <ul class="nav navbar-nav navbar-right">
     <li class="nav-item">
-        <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()" style="color: white;">Log off</a>
+        <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()" style="color: white;">Log Off</a>
         <form asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm" method="post" style="display: none;"></form>
     </li>
 </ul>
@@ -21,6 +21,6 @@ else
 {
     <ul class="nav navbar-nav navbar-right">
         <li><a id="registerLink" class="nav-link" asp-area="" asp-controller="Account" asp-action="Register" style="color: white;">Register</a></li>
-        <li><a class="nav-link" asp-area="" id="loginLink" asp-controller="Account" asp-action="Login" style="color: white;">Log in</a></li>
+        <li><a class="nav-link" asp-area="" id="loginLink" asp-controller="Account" asp-action="Login" style="color: white;">Login</a></li>
     </ul>
 }

@@ -43,7 +43,7 @@ namespace Online_store.Controllers
                 if (result.Succeeded)
                 {
                     if (string.IsNullOrEmpty(userModel.ReturnUrl))
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Home", new { logon = true });
                     return Redirect(userModel.ReturnUrl);
                 }
             }
@@ -62,7 +62,7 @@ namespace Online_store.Controllers
                 var user1 = new IdentityUser() { UserName = userModel.Username };
                 var result = await _userManager.CreateAsync(user1, userModel.PasswordHash);
                 if (result.Succeeded) {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home", new { register = true});
                 } 
                 else
                 // displays error message to the user based on their incorrect input
