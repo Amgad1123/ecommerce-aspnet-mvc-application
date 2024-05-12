@@ -26,11 +26,11 @@
 
 <body>
     <table>
-        <thead>l
+        <thead>
             <tr>
                 <th>Product</th>
                 <th>Quantity</th>
-                <th>Action</th>
+                <th>Remove Products</th>
             </tr>
         </thead>
         <tbody>
@@ -40,11 +40,9 @@
                     <td>@item.Name</td>
                     <td>@item.NumInCart</td>
                     <td>
-                        <form method="post" asp-action="RemoveFromCart">
+                        <form method="post" asp-action="RemoveFromCart" class="remove-from-cart-form">
                             <input type="hidden" name="productId" value="@item.ProductId" />
-                            <div class="quantity">
-                                <input type="number" name="quantity" value="1" min="1" max="@item.NumInCart" />
-                            </div>
+                            <input type="number" name="quantity" class="quantity" value="1" min="1" max="@item.NumInCart" />
                             <button type="submit">Remove from Cart</button>
                         </form>
 
@@ -54,7 +52,7 @@
         </tbody>
     </table>
 
-    <div style="margin-top: 20px;">
+    <div style="margin-top: 20px; color: white; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);">
         <h2>Summary</h2>
         <div>
             Subtotal: $@subtotal
@@ -68,9 +66,8 @@
     </div>
 
     <div style="margin-top: 20px;">
-        <a href="@Url.Action("Index", "Checkout")" class="btn btn-success">Proceed to Checkout</a>
+        <a href="@Url.Action("Index", "Checkout")" class="btn-custom">Proceed to Checkout</a> 
     </div>
-
-
 </body>
 </html>
+
