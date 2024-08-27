@@ -168,7 +168,10 @@ INSERT INTO Products (Name, Description, Price, QuantityInStock, NumInCart) VALU
 ('OrganicLife Organic Multivitamin', 'Certified organic multivitamin with whole food ingredients', 29.99, 40, 0),
 ('PureGain Creatine Monohydrate', 'Pure creatine monohydrate powder for strength and endurance', 24.99, 75, 0),
 ('MuscleFuel BCAA', 'Branched-chain amino acids for muscle recovery and growth', 22.99, 80, 0),
-('MaxPower Xtend BCAA', 'Intra-workout BCAA supplement for enhanced performance and recovery', 27.99, 70, 0);
+('MaxPower Xtend BCAA', 'Intra-workout BCAA supplement for enhanced performance and recovery', 27.99, 70, 0),
+('Bennet Power Pellet', 'Delicious power bites for post workout recovery', 99999.99, 69420, 0),
+('Yico Power Pellet', 'hi power bites for post workout recovery', 3.99, 69420, 0);
+
 
 
 
